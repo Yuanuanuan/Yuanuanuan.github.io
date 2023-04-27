@@ -55,6 +55,7 @@ body{
     font-size: 27px;
     padding: 10px 60px;
     display: none;
+    white-space: collapse;
 }
 .answer > ul{
     list-style-type: square;
