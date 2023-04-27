@@ -162,12 +162,22 @@
                     hr.style.display = "none";
                 }
             });
+            
+            question.addEventListener("touchstart", function(){
+                if(answer.style.display == "block"){
+                    answer.style.display = "block";
+                    hr.style.display = "block";
+                }else{
+                    answer.style.display = "none";
+                    hr.style.display = "none";
+                }
+            });
 
             question.addEventListener("click", function(event){
                 answer.style.display = answer.style.display === "none"?"block":"none";
                 hr.style.display = hr.style.display === "none"?"block":"none";
             });
-            question.addEventListener("touchstart", function(event){
+            question.addEventListener("touchend", function(event){
                 answer.style.display = answer.style.display === "none"?"block":"none";
                 hr.style.display = hr.style.display === "none"?"block":"none";
                 event.stopPropagation();
