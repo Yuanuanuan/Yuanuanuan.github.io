@@ -162,7 +162,7 @@
                     hr.style.display = "none";
                 }
             });
-            
+
             question.addEventListener("touchstart", function(){
                 if(answer.style.display == "block"){
                     answer.style.display = "block";
@@ -180,7 +180,6 @@
             question.addEventListener("touchend", function(event){
                 answer.style.display = answer.style.display === "none"?"block":"none";
                 hr.style.display = hr.style.display === "none"?"block":"none";
-                event.stopPropagation();
             });
         }
       </script>
