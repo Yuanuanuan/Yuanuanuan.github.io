@@ -166,7 +166,7 @@
 
             question.addEventListener("touchend", function(event){
                 touchEndTime = new Date().getTime();
-                if(touchEndTime - touchStartTime < 50){
+                if(touchEndTime - touchStartTime < 100){
                     answer.style.display = answer.style.display !== "block"?"block":"none";
                     hr.style.display = answer.style.display
                 }
