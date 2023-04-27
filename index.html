@@ -126,8 +126,10 @@
                 在做javascript點擊效果的時候發現要點擊2下才會觸發效果，
                 試了很久還是沒辦法改善，在想是不是因為第一次點擊是抓取資料，
                 第二次點擊才觸發js點擊效果，於是加了mouseover跟mouseleave來展開答案，
-                但會跟點擊事件互相衝突，於是又把他拿掉了，最後還是沒辦法改善。
-
+                但會跟點擊事件互相衝突，於是又把他拿掉了，最後想到只要在mouseover時給他
+                判斷條件就會抓取資料了，這樣點擊時就已經有資料便可以直接達到效果。<br>
+                雖然很多此一舉，因為mouseover的效果在網頁中是不會有變化的，
+                但這是我目前能想到能達到目的最好的辦法了。
             </div>
         </div>
 
@@ -159,6 +161,10 @@
             });
 
             question.addEventListener("click", function(event){
+                answer.style.display = answer.style.display === "none"?"block":"none";
+                hr.style.display = hr.style.display === "none"?"block":"none";
+            });
+            question.addEventListener("touchstart", function(event){
                 answer.style.display = answer.style.display === "none"?"block":"none";
                 hr.style.display = hr.style.display === "none"?"block":"none";
             });
