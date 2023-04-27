@@ -28,7 +28,6 @@ body{
     margin-top: 20px;
     padding-left: 17%;
     padding-right: 17%;
-    z-index: 2;
 }
 .question_hd{
     background-color: #99999980;
@@ -56,7 +55,6 @@ body{
     font-size: 27px;
     padding: 10px 60px;
     display: none;
-    white-space: collapse;
 }
 .answer > ul{
     list-style-type: square;
@@ -80,7 +78,42 @@ ul{
 
 
 @media screen and (max-width: 767px) {
-    
+    .head{
+        font-size: 40px;
+        padding: 5px;
+    }
+    .application_png{
+        width: 50px;
+        height: 50px;
+    }
+    .content{
+        margin-top: 10px;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    .question_hd{
+        margin-bottom: 10px;
+        border-radius: 15px;
+    }
+    .question{
+        padding:5px;
+        font-size: 13px;
+        border-radius: 15px;
+    }
+    .hr{
+        height: 2px;
+        width:80%;
+    }
+    .answer{
+        font-size: 10px;
+        padding: 5px 15px;
+    }
+    .schedules{
+        margin-left: 10px;
+    }
+    ul{
+        padding: 0 25px;
+    }
 }
 
 
