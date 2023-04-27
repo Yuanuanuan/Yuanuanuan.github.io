@@ -170,6 +170,7 @@
             question.addEventListener("touchstart", function(event){
                 answer.style.display = answer.style.display === "none"?"block":"none";
                 hr.style.display = hr.style.display === "none"?"block":"none";
+                event.stopPropagation();
             });
         }
       </script>
