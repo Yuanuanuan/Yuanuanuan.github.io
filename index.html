@@ -159,19 +159,6 @@
                 answer.style.display = answer.style.display !== "block"?"block":"none";
                     hr.style.display = answer.style.display
             });
-
-            question.addEventListener("touchstart", function(event){
-                touchStartTime = new Date().getTime();
-            });
-
-            question.addEventListener("touchend", function(event){
-                touchEndTime = new Date().getTime();
-                const touchTime = touchEndTime - touchStartTime;
-                if(touchTime < 50 && touchTime > 0){
-                    answer.style.display = answer.style.display !== "block"?"block":"none";
-                    hr.style.display = answer.style.display
-                }
-            })
         }
       </script>
       
