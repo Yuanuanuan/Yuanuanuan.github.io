@@ -120,8 +120,14 @@
             <div class="question">關於這份申請網頁，請分享一個你開發時的技術心得。</div>
             <div class="hr"></div>
             <div class="answer">
-                在學習時會發現其實都看得懂，但實做就會處處卡關，像一些div的排版 
-                有時會突然不知道應該要用什麼方式撰寫 所以邊看邊實做才是最好吸收的學習方式
+                在學習時會發現其實都看得懂，但實做就會處處卡關，像一些css的設定， 
+                有時會突然搞錯要設定在容器內還是容器內的內容，
+                學了一個技巧後都要實作才會知道有沒有學會。<br>
+                在做javascript點擊效果的時候發現要點擊2下才會觸發效果，
+                試了很久還是沒辦法改善，在想是不是因為第一次點擊是抓取資料，
+                第二次點擊才觸發js點擊效果，於是加了mouseover跟mouseleave來展開答案，
+                但會跟點擊事件互相衝突，於是又把他拿掉了，最後還是沒辦法改善。
+
             </div>
         </div>
 
@@ -129,7 +135,7 @@
             <div class="question">其他想要對我們說的事情？</div>
             <div class="hr"></div>
             <div class="answer">
-                我希望能學習業界所需要的技能 不然本科生真的好難找工作QQ
+                我希望能學習業界所需要的技能 不然非本科生真的好難找工作QQ
             </div>
         </div>
     </section>
@@ -141,6 +147,16 @@
             const question = questions[i];
             const hr = question.nextElementSibling;
             const answer = question.nextElementSibling.nextElementSibling;
+
+            question.addEventListener("mouseover", function(){
+                if(answer.style.display == "block"){
+                    answer.style.display = "block";
+                    hr.style.display = "block";
+                }else{
+                    answer.style.display = "none";
+                    hr.style.display = "none";
+                }
+            });
 
             question.addEventListener("click", function(event){
                 answer.style.display = answer.style.display === "none"?"block":"none";
