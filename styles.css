@@ -1,5 +1,5 @@
 *{
-    cursor: url("img/pointer.png"),auto;
+    cursor: url("img/click.png"),auto;
 }
 body{
     margin: 0 0 0 auto;
@@ -26,8 +26,8 @@ body{
 }
 .content{
     margin-top: 20px;
-    padding-left: 17%;
-    padding-right: 17%;
+    padding-left: 13%;
+    padding-right: 13%;
 }
 .question_hd{
     background-color: #99999980;
@@ -36,13 +36,14 @@ body{
     border-radius: 20px;
 }
 .question{
-    padding:10px;
+    padding:10px 0;
     font-size: 30px;
     text-align: center;
     border-radius: 20px;
 }
 .question:hover{
     background-color: #e1d4c9;
+    cursor: url("img/left-click.png"),auto;
 }
 .hr{
     background-color: #e6d7d0;
@@ -70,15 +71,21 @@ a:visited{
 ul{
     margin: 0 auto;
 }
+.disc{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
 .disc li{
     list-style-type: disc;
+    flex-basis: 34%;
 }
 .schedules{
     margin-left: 50px;
 }
 
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 779px) {
     .head{
         font-size: 40px;
         padding: 5px;
@@ -97,7 +104,7 @@ ul{
         border-radius: 15px;
     }
     .question{
-        padding:5px;
+        padding:5px 0;
         font-size: 13px;
         border-radius: 15px;
     }
@@ -115,8 +122,45 @@ ul{
     ul{
         padding: 0 25px;
     }
+    .disc{
+    display: block;
+    }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-    
+@media screen and (min-width: 780px) and (max-width: 1024px) {
+    .head{
+        font-size: 70px;
+        padding: 5px;
+    }
+    .application_png{
+        width: 70px;
+        height: 70px;
+    }
+    .content{
+        margin-top: 10px;
+        padding-left: 13%;
+        padding-right: 13%;
+    }
+    .question{
+        padding:5px 0;
+        font-size: 26px;
+        border-radius: 15px;
+    }
+    .hr{
+        height: 3px;
+        width:90%;
+    }
+    .answer{
+        font-size: 23px;
+        padding: 5px 30px;
+    }
+    .schedules{
+        margin-left: 8px;
+    }
+    ul{
+        padding: 0 20px;
+    }
+    .disc{
+    display: block;
+    }
 }

@@ -59,10 +59,7 @@
                                 target="_blank">Javascript教程</a>
                             </li>
                             <li> <a href="https://www.freecodecamp.org/" 
-                            target="_blank">freecodecamp</a>
-                            </li>
-                            <li><a href="https://codepip.com/games/grid-garden" 
-                            target="_blank">codepip</a>
+                                target="_blank">freecodecamp</a>
                             </li>
                         </ul>
                     </li>
@@ -96,8 +93,10 @@
             <div class="question">是否有想要加入的軟體公司？為什麼想加入該公司？</div>
             <div class="hr"></div>
             <div class="answer">
-                Google 福利待遇好 喜歡他們的公司文化(例如工作彈性 可以自由安排工作時間) 
-                大公司工作穩定 
+                因為我是剛踏入這個領域的初學者，也深知自己不足之處， 所以目前沒有特定的追求，
+                只希望能精進自己的能力。<br>最大的目標可能就是國外的大公司， 
+                例如Google，Amazon，Microsoft...這種大公司，因為薪資福利好，
+                公司文化我也蠻喜歡的， 工作彈性，還能結識到這個產業內傑出人才，也有機會去國外看看。
             </div>
         </div>
 
@@ -120,17 +119,15 @@
             <div class="question">關於這份申請網頁，請分享一個你開發時的技術心得。</div>
             <div class="hr"></div>
             <div class="answer">
-                在學習時覺得已經懂了，但實做後會發現自己還是有許多的問題，像一些css的設定， 
+                在學習時覺得已經懂了，但實做後會發現自己還是有許多的問題，
+                像一些css的設定， 
                 有時候會突然搞錯要設定在容器內還是容器內的內容。<br>
                 在做javascript點擊效果的時候發現要點擊2下才會觸發效果，
                 試了很久還是沒辦法改善，我在想是不是因為第一次點擊是抓取資料，
-                第二次才觸發js點擊效果，於是加了mouseover跟mouseleave來展開與關閉答案，
-                但會跟click互相衝突，最後想到只要在mouseover時給他判斷條件就會抓取資料了，
-                這樣點擊時就已經有資料便可以直接達到效果。
-                雖然有些多此一舉，因為mouseover的效果在網頁中是不會有變化的，
-                但這是我目前能想到最好的辦法了。<br>
-                再來是手機的部分，如果用click還是需要點擊第二次才能達到效果，
-                所以再加了一個touchstart來達到在手機也能點擊第一次就打開的效果。<br>
+                第二次才觸發js點擊效果，
+                於是加了mouseover來提早抓取資料，雖然狀況改善了，
+                但這樣做有些多此一舉，於是繼續研究後發現只要更改判斷式，
+                從if === none改成if !== block就可以改善。<br>
                 光製作這個網頁就讓我學到了很多東西，為了達到自己想要的目的，
                 上網搜尋各種資料時就能間接學到很多不一樣的東西。
             </div>
@@ -140,7 +137,10 @@
             <div class="question">其他想要對我們說的事情？</div>
             <div class="hr"></div>
             <div class="answer">
-                我希望能學習業界所需要的技能 不然非本科生真的好難找工作QQ
+                從第二屆就知道你們，因為那時一直找不到方向，想要有個老師般的人物來帶領我，
+                所以看到第四屆開課資訊時，就馬上開始籌備，過程中一直想做到自己能力所及的最好，
+                也謝謝你們看到這邊，在這段準備過程中我學習到了很多，不管有沒有錄取，
+                這都將成為我的養分。
             </div>
         </div>
     </section>
@@ -152,8 +152,6 @@
             const question = questions[i];
             const hr = question.nextElementSibling;
             const answer = question.nextElementSibling.nextElementSibling;
-
-            
 
             question.addEventListener("click", function(event){
                 answer.style.display = answer.style.display !== "block"?"block":"none";
