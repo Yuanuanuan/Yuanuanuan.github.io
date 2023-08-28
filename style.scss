@@ -81,8 +81,8 @@ header {
     width: 100%;
     min-height: 100vh;
     background-image: url("https://microbot.ch/new/wp-content/uploads/2017/11/signal_lost_microbot_ch.jpg");
-    background-position: calc(50% + var(--background-offset-x, 0px)) calc(50% + var(--background-offset-y, 0px));
-    background-size: 110%;
+    background-position: center;
+    background-size: cover;
     position: relative;
     z-index: -2;
     color: #c9c9c9;
