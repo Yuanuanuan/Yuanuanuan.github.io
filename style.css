@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  font-family: "Libre Bodoni", serif;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 40px;
+}
+header nav {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+header nav div {
+  margin-left: 10px;
+  font-size: 2rem;
+  font-family: "Share Tech Mono", monospace;
+  letter-spacing: 3px;
+  z-index: 2;
+  color: #c9c9c9;
+}
+header nav ul {
+  height: 100%;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+header nav ul li {
+  margin-right: 20px;
+}
+header nav ul li a {
+  text-decoration: none;
+  font-size: 0.8rem;
+  color: #dedede;
+  position: relative;
+}
+header nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background-color: #c9c9c9;
+  transform: scale(0, 1);
+  transition: transform 0.3s ease-in-out;
+}
+header nav ul li a:hover::after {
+  transform: scale(1, 1);
+}
+
+.bg-img-wrapper {
+  height: 100vh;
+  width: 100%;
+  background-color: #000;
+  overflow: hidden;
+  position: absolute;
+  z-index: -2;
+}
+.bg-img-wrapper .bg-img {
+  overflow: hidden;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url("https://microbot.ch/new/wp-content/uploads/2017/11/signal_lost_microbot_ch.jpg");
+  background-position: calc(50% + var(--background-offset-x, 0px)) calc(50% + var(--background-offset-y, 0px));
+  background-size: 110%;
+  position: relative;
+  z-index: -2;
+  color: #c9c9c9;
+  font-family: "Merriweather", serif;
+  position: absolute;
+}
+.bg-img-wrapper .bg-img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.8) 100%);
+  pointer-events: none;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main .title {
+  font-size: 2.5rem;
+  font-family: "Teko", sans-serif;
+  color: #bdc591;
+  text-shadow: 0 0 20px #eaf89a;
+  letter-spacing: 5px;
+}
+.main .title-scroll {
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  color: #c9c9c9;
+  position: relative;
+  top: 140px;
+}/*# sourceMappingURL=style.css.map */
