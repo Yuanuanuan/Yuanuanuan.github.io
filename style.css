@@ -15,13 +15,12 @@ header {
   left: 0;
   z-index: 999;
   width: 100%;
-  height: 80px;
+  height: 60px;
 }
 header nav {
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  padding: 0 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -29,42 +28,74 @@ header nav {
   transition: opacity 0.3s ease-in-out;
 }
 header nav div {
-  margin-left: 10px;
-  font-size: 4rem;
+  font-size: 2rem;
+  margin-left: 20px;
   font-family: "Share Tech Mono", monospace;
   letter-spacing: 3px;
   z-index: 2;
   color: #c9c9c9;
 }
 header nav ul {
-  height: 100%;
+  height: 100vh;
   list-style: none;
   display: flex;
-  align-items: center;
-  justify-content: end;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: scale(0, 1);
+  transition: transform 0.4s ease-in-out;
+  transform-origin: right;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+header nav ul li:first-child {
+  margin-top: 60px;
 }
 header nav ul li {
-  margin-right: 50px;
+  margin: 15px 25px;
 }
 header nav ul li a {
   text-decoration: none;
-  font-size: 1.5rem;
-  color: #dedede;
+  font-size: 1rem;
+  color: #c9c9c9;
   position: relative;
-}
-header nav ul li a::after {
-  content: "";
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 100%;
-  height: 2.5px;
-  background-color: #c9c9c9;
-  transform: scale(0, 1);
-  transition: transform 0.3s ease-in-out;
 }
 header nav ul li a:hover::after {
   transform: scale(1, 1);
+}
+header nav .hamburger-banner {
+  height: 20px;
+  width: 20px;
+  margin-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header nav .hamburger-banner .hamburger {
+  height: 1px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #c9c9c9;
+  position: relative;
+}
+header nav .hamburger-banner .hamburger::before,
+header nav .hamburger-banner .hamburger::after {
+  content: "";
+  height: 1px;
+  width: 100%;
+  background-color: #c9c9c9;
+  position: absolute;
+}
+header nav .hamburger-banner .hamburger::before {
+  bottom: 5px;
+}
+header nav .hamburger-banner .hamburger::after {
+  top: 5px;
+}
+header nav .hamburger-banner .close-icon {
+  height: 20px;
+  width: 20px;
+  display: none;
 }
 
 .bg-img-wrapper {
@@ -110,18 +141,22 @@ header nav ul li a:hover::after {
   align-items: center;
 }
 .main .title {
-  font-size: 7rem;
+  font-size: 2.5rem;
   font-family: "Teko", sans-serif;
   color: #bdc591;
   text-shadow: 0 0 20px #eaf89a;
   letter-spacing: 10px;
+  text-align: center;
+}
+.main .title span {
+  display: block;
 }
 .main .title-scroll {
-  font-size: 1.2rem;
+  font-size: 0.6rem;
   letter-spacing: 3px;
   color: #c9c9c9;
   position: relative;
-  top: 300px;
+  top: calc(50vh - 25%);
 }
 
 .test {

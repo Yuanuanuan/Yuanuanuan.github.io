@@ -3,6 +3,10 @@
 let nav = document.querySelector('nav')
 const title = document.querySelector(".title")
 const titleScroll = document.querySelector('.title-scroll')
+const hamburger = document.querySelector('.hamburger-banner')
+const hamburgerIcon = document.querySelector('.hamburger')
+const closeIcon = document.querySelector('.close-icon')
+const list = document.querySelector('ul')
 
 const bgImg = document.querySelector('.bg-img')
 const bgImgWidth = bgImg.offsetWidth;
@@ -45,3 +49,16 @@ titleAnimation
   
     bgImg.style.transform = `scale(${scaleFactor}) translate3d(0, ${translateY}px, 0)`;
   });
+
+
+hamburger.addEventListener('click', e => {
+  if (list.style.transform === 'scale(0, 1)') {
+    list.style.transform = 'scale(1, 1)';
+    hamburgerIcon.style.display = 'none';
+    closeIcon.style.display = 'block';
+  } else {
+    list.style.transform = 'scale(0, 1)';
+    hamburgerIcon.style.display = '';
+    closeIcon.style.display = 'none';
+  }
+})
