@@ -10,7 +10,6 @@ $white: #c9c9c9;
 
 body {
   position: relative;
-  font-family: 'Libre Bodoni', serif;
 }
 
 header {
@@ -60,6 +59,7 @@ header {
         a {
           text-decoration: none;
           font-size: 1rem;
+          font-family: 'Lustria', serif;
           color: $white;
           position: relative;
           // &::after {

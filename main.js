@@ -32,7 +32,7 @@ titleAnimation
   .to(title, { opacity: 1, duration: 0.1, stagger: 0.05})
 
   document.addEventListener('mousemove', (e) => {
-    if (scrollY > 0) return;
+    if (scrollY > 0 || window.innerWidth < 576) return;
     const mouseX = e.clientX;
     const mouseY = e.clientY;
 
