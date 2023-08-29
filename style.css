@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   position: relative;
 }
@@ -15,6 +19,9 @@ header {
   z-index: 999;
   width: 100%;
   height: 60px;
+  color: #c9c9c9;
+  transition: all 0.3s ease-in-out;
+  border-radius: 0 0 5px 5px;
 }
 header nav {
   width: 100%;
@@ -32,7 +39,6 @@ header nav div {
   font-family: "Share Tech Mono", monospace;
   letter-spacing: 3px;
   z-index: 2;
-  color: #c9c9c9;
 }
 header nav ul {
   height: 100vh;
@@ -63,7 +69,7 @@ header nav ul li a {
 header nav ul li a:hover::after {
   transform: scale(1, 1);
 }
-header nav .hamburger-banner {
+header nav .menu-toggle {
   height: 20px;
   width: 20px;
   margin-right: 20px;
@@ -71,30 +77,14 @@ header nav .hamburger-banner {
   justify-content: center;
   align-items: center;
 }
-header nav .hamburger-banner .hamburger {
-  height: 1px;
-  width: 100%;
-  margin: 0 auto;
-  background-color: #c9c9c9;
-  position: relative;
+header nav .menu-toggle .menu-icon {
+  height: 25px;
+  width: 25px;
+  display: block;
 }
-header nav .hamburger-banner .hamburger::before,
-header nav .hamburger-banner .hamburger::after {
-  content: "";
-  height: 1px;
-  width: 100%;
-  background-color: #c9c9c9;
-  position: absolute;
-}
-header nav .hamburger-banner .hamburger::before {
-  bottom: 5px;
-}
-header nav .hamburger-banner .hamburger::after {
-  top: 5px;
-}
-header nav .hamburger-banner .close-icon {
-  height: 20px;
-  width: 20px;
+header nav .menu-toggle .close-icon {
+  height: 25px;
+  width: 25px;
   display: none;
 }
 
