@@ -21,7 +21,7 @@ window.addEventListener('load', () => {
   setTimeout(() => {
     loading.style.display = 'none';
     loadSuccess.style.display = '1';
-  }, 2000);
+  }, 0);
 })
 
   
@@ -46,13 +46,14 @@ window.addEventListener('load', () => {
     }
   
     if (rect.top <= header.getBoundingClientRect().height) {
-      header.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
       header.style.color = '#000';
+      header.style.backgroundColor = '#f0f0f0';
       header.style.boxShadow = '0 0 15px 2px #555';
       menuIcon.src = '/images/menu-black.svg';
     } else {
-      header.style.backgroundColor = 'transparent';
       header.style.color = '#c9c9c9';
+      header.style.backgroundColor = 'transparent';
+      header.style.backdropFilter = 'none';
       menuIcon.src = '/images/menu.svg';
       header.style.boxShadow = 'none';
     }
@@ -75,7 +76,7 @@ window.addEventListener('load', () => {
       menuIcon.style.display = 'none';
       closeIcon.style.display = 'block';
     } else {
-      list.style.transform = 'scale(0, 1)';
+      list.style.transform = 'scale(1, 0)';
       menuIcon.style.display = 'block';
       closeIcon.style.display = 'none';
     }
@@ -136,20 +137,19 @@ ProfileAnimation
   .from('.profile-paragraph1', {y:30, opacity: 0, duration: 0.5})
   .from('.profile-paragraph2', {y:30, opacity: 0, duration: 0.5})
   .from('.profile-paragraph3', {y:30, opacity: 0, duration: 0.5})
+  .from('.block-profile', {scale: 0, transformOrigin: 'left bottom'})
 
-  ScrollTrigger.create({
-    trigger: "#about-me",
-    start: 'top 20%',
-    onEnter: () => {
-      ProfileAnimation.play();
-    }
-  })
-  
 
-  ScrollTrigger.create({
-    trigger: "#about-me",
-    start: "top 50%",
-    onEnter: () => {
-      AboutMeAnimation.play();
-    }
-  })
+  const ScrollAnimation = ({ target, start, play }) => {
+    ScrollTrigger.create({
+      trigger: target,
+      start: start,
+      onEnter: () => {
+        play.play();
+      }
+    })
+  }
+
+  ScrollAnimation({ target: '#about-me', start: 'top 20%', play: ProfileAnimation});
+
+  ScrollAnimation({ target: '#about-me', start: 'top 50%', play: AboutMeAnimation});
