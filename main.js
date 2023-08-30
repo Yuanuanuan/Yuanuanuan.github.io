@@ -63,8 +63,8 @@
       const mouseX = e.clientX;
       const mouseY = e.clientY;
   
-      const moveX = (0.5 - mouseX / bgImgWidth) * 10;
-      const moveY = (0.5 - mouseY / bgImgHeight) * 10;
+      const moveX = (0.5 - mouseX / bgImgWidth) * 15;
+      const moveY = (0.5 - mouseY / bgImgHeight) * 15;
   
       bgImg.style.transform = `translate(${moveX}px, ${moveY}px)`;
   });
