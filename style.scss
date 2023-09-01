@@ -32,9 +32,9 @@
   src: url('/fonts/Adamina-Regular.ttf') format('truetype');
 }
 
-$headerHeight : 60px;
+$bgWhite: #f0f0f0;
 $white: #c9c9c9;
-$red: red;
+$mainColor: rgba(110, 91, 72, 0.9);
 
 
 * {
@@ -45,6 +45,14 @@ $red: red;
 
 html {
   scroll-behavior: smooth;
+}
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
 
 body {
@@ -100,7 +108,7 @@ header {
   left: 0;
   z-index: 999;
   width: 100%;
-  height: $headerHeight;
+  height: 60px;
   color: $white;
   transition: color .3s ease-in-out;
   border-radius: 0 0 5px 5px;
@@ -302,12 +310,12 @@ main {
       width: 100%;
       display: grid;
       grid-template-columns: 1fr;
-      grid-template-rows: 3fr 6fr;
+      grid-template-rows: max(260px) 1fr;
       justify-items: center;
       align-items: center;
       .about-me-img-wrapper {
         position: relative;
-        height: 80%;
+        height: 100%;
         width: 100%;
         &::before,
         &::after {
@@ -315,7 +323,7 @@ main {
           width: 50px;
           height: 50px;
           position: absolute;
-          border: 3px solid #96725e;
+          border: 3px solid $mainColor;
         }
         &::before {
           top: 40px;
@@ -338,95 +346,141 @@ main {
           opacity: 0;
         }
       }
-      .about-me-banner {
-        padding: 0 20px 10px;
-        color: #444;
-        grid-row: 2;
-        align-self: start;
-        font-family: 'BenchNine' ,'Noto Sans TC', serif;
-        position: relative;
-        z-index: 3;
+    }
+    .about-me-banner {
+      padding: 0 20px 10px;
+      color: #444;
+      grid-row: 2;
+      align-self: start;
+      font-family: 'BenchNine' ,'Noto Sans TC', serif;
+      position: relative;
+      z-index: 3;
 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        .intro {
-          font-size: 1.2rem;
-          padding: 5px 0;
-          border-bottom: 2px solid #96725e;
-          border-radius: 2px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .intro {
+        font-size: 1.2rem;
+        padding: 8px 20px 4px;
+        border-bottom: 2px solid $mainColor;
+        &:first-child {
+          padding-top: 15px;
         }
-        img {
+        &:nth-last-child(2) {
+          margin-bottom: 20px;
+        }
+      }
+      img {
           height: 1rem;
-        }
+      }
 
-        .profile-paragraph {
-          width: 100%;
-          margin: 20px 0 5rem;
-          background-color: #fcfcfc;
-          position: relative;
-          border-radius: 10px;
-          font-family: 'BenchNine', serif;
+      .profile-paragraph {
+        width: 100%;
+        margin: 20px 0 5rem;
+        background-color: #fcfcfc;
+        position: relative;
+        font-family: 'BenchNine', serif;
           &::after {
-            content: '';
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            border: 3px solid #8d683e;
-            z-index: -1;
-          }
-          .profile-title {
-            width: 80%;
-            margin: 0 auto;
-            padding: 10px 0;
-            font-size: 2rem;
-            letter-spacing: 2px;
-            text-align: center;
-            border-bottom: 2px solid #444;
-          }
-        }
-        .profile {
-          margin: 10px;
-        }
-        .block-profile {
-          width: 230px;
-          height: 380px;
-          border: 4px solid rgba(247, 118, 118, 0.5);
+          content: '';
+          width: 100%;
+          height: 100%;
           position: absolute;
-          top: 0px;
-          left: 30px;
+          top: 15px;
+          left: 15px;
+          border: 3px solid $mainColor;
           z-index: -1;
-          &::before {
-            content: '';
-            width: 100%;
-            height: 100%;
-            background-color: rgb(255, 222, 172);
-            position: absolute;
-            top: 20px;
-            left: -30px;
-            z-index: -2;
-          }
+        }
+        .profile-title {
+          width: 80%;
+          margin: 0 auto;
+          padding: 10px 0;
+          font-size: 2rem;
+          letter-spacing: 2px;
+          text-align: center;
+          border-bottom: 2px solid #444;
+        }
+      }
+      .profile {
+        margin: 10px;
+      }
+      .block-profile {
+        width: 230px;
+        height: 380px;
+        border: 4px solid rgba(247, 118, 118, 0.5);
+        position: absolute;
+        top: 0px;
+        left: 30px;
+        z-index: -1;
+         &::before {
+          content: '';
+          width: 100%;
+          height: 100%;
+          background-color: rgb(255, 222, 172);
+          position: absolute;
+          top: 20px;
+          left: -30px;
+          z-index: -2;
         }
       }
     }
   }
 
   .qualification-section {
-    background-color: #f0f0f0;
+    background-color: $bgWhite;
     .qualification {
-      padding-top: 80px;
+      padding-top: 60px;
       .qualification-title-describe {
         font-size: .8rem;
         text-align: center;
+        letter-spacing: 1px;
       }
       .qualification-title {
         font-size: 2.5rem;
         text-align: center;
         position: relative;
         z-index: 1;
+      }
+      .cards {
+        width: 100%;
+        .card {
+          width: 80%;
+          margin: 0 auto;
+          margin-top: 2rem;
+          padding-bottom: 30px;
+          font-family: 'Noto Sans TC', serif;
+          &:first-child {
+            margin-top: 4rem;
+          }
+          .education-icon, .work-icon {
+            width: 1.8rem;
+            margin-right: 1rem;
+          }
+          .icon {
+            width: 1.2rem;
+            height: 1.2rem;
+            
+          }
+          .title {
+            font-size: 1.3rem;
+            font-family: 'Lustria', serif;
+            font-weight: 700;
+            color:#664519;
+            display: flex;
+            align-items: center;
+          }
+          h2 {
+            font-size: 1rem;
+            margin: 10px 0 5px;
+            padding: 4px 0;
+            color: #725735;
+          }
+          h3 {
+            padding: 4px 0;
+            font-size: .7rem;
+            color: #666;
+          }
+        }
       }
     }
   }
