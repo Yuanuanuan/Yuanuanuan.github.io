@@ -23,6 +23,14 @@
   font-family: 'Noto Sans TC';
   src: url('/fonts/NotoSansTC-VariableFont_wght.ttf') format('truetype');
 }
+@font-face {
+  font-family: 'BenchNine';
+  src: url('/fonts/BenchNine-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Adamina';
+  src: url('/fonts/Adamina-Regular.ttf') format('truetype');
+}
 
 $headerHeight : 60px;
 $white: #c9c9c9;
@@ -46,7 +54,6 @@ body {
 .container {
   width: 80%;
   margin: 0 auto;
-  height: 100vh;
 }
 
 .block {
@@ -270,50 +277,119 @@ header {
 
 main {
   width: 100%;
-  background-color: #f0f0f0;
+  font-family: 'Playfair Display SC', serif;
+  .about-me-section {
+    background-color: #e4e4e4;
+  }
   .about-me {
     min-height: 100vh;
+    .about-me-describe {
+      width: 100%;
+      text-align: center;
+      padding: 80px 0 0;
+      margin-bottom: -10px;
+      font-size: .9rem;
+    }
     .about-me-title {
       padding: 10px;
+      padding-top: 0;
       text-align: center;
       font-size: 3rem;
-      font-family: 'Playfair Display SC', serif;
       position: relative;
       z-index: 1;
     }
     .about-me-wrapper {
-      height: calc(100vh - (4rem + 20px));
       width: 100%;
       display: grid;
       grid-template-columns: 1fr;
-      grid-template-rows: 4fr 6fr;
-      grid-gap: 20px;
+      grid-template-rows: 3fr 6fr;
       justify-items: center;
       align-items: center;
       .about-me-img-wrapper {
         position: relative;
-        height: 100%;
+        height: 80%;
         width: 100%;
+        &::before,
+        &::after {
+          content: '';
+          width: 50px;
+          height: 50px;
+          position: absolute;
+          border: 3px solid #96725e;
+        }
+        &::before {
+          top: 40px;
+          left: 0;
+          border-right: 0;
+          border-bottom: 0;
+        }
+        &::after {
+          bottom: 0;
+          right: 0;
+          border-top: 0;
+          border-left: 0;
+        }
         img {
           max-width: 100%;
           height: 100px;
           position: absolute;
           bottom: 30px;
           left: calc(50% - 140px);
+          opacity: 0;
         }
       }
       .about-me-banner {
-        height: 100%;
         padding: 0 20px 10px;
         color: #444;
         grid-row: 2;
         align-self: start;
-        font-family: 'Noto Sans TC', serif;
+        font-family: 'BenchNine' ,'Noto Sans TC', serif;
         position: relative;
         z-index: 3;
-        
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .intro {
+          font-size: 1.2rem;
+          padding: 5px 0;
+          border-bottom: 2px solid #96725e;
+          border-radius: 2px;
+        }
+        img {
+          height: 1rem;
+        }
+
+        .profile-paragraph {
+          width: 100%;
+          margin: 20px 0 5rem;
+          background-color: #fcfcfc;
+          position: relative;
+          border-radius: 10px;
+          font-family: 'BenchNine', serif;
+          &::after {
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            border: 3px solid #8d683e;
+            z-index: -1;
+          }
+          .profile-title {
+            width: 80%;
+            margin: 0 auto;
+            padding: 10px 0;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            text-align: center;
+            border-bottom: 2px solid #444;
+          }
+        }
         .profile {
-          margin-top: 10px;
+          margin: 10px;
         }
         .block-profile {
           width: 230px;
@@ -334,6 +410,23 @@ main {
             z-index: -2;
           }
         }
+      }
+    }
+  }
+
+  .qualification-section {
+    background-color: #f0f0f0;
+    .qualification {
+      padding-top: 80px;
+      .qualification-title-describe {
+        font-size: .8rem;
+        text-align: center;
+      }
+      .qualification-title {
+        font-size: 2.5rem;
+        text-align: center;
+        position: relative;
+        z-index: 1;
       }
     }
   }

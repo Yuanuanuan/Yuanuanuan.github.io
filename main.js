@@ -120,16 +120,16 @@ const AboutMeAnimation = gsap.timeline({ paused: true});
 
 
 AboutMeAnimation
-  .to('.about-me-img', {x:0, scale: 1, duration: .5})
-  .to('.about-me-img1', {x:20, scale: 1.1, transformOrigin: "center bottom"}, '<')
-  .to('.about-me-img2', {x:40, scale: 1.2, transformOrigin: "center bottom"}, '<')
-  .to('.about-me-img3', {x:60, scale: 1.3, transformOrigin: "center bottom"}, '<')
-  .to('.about-me-img4', {x:80, scale: 1.4, transformOrigin: "center bottom"}, '<')
-  .to('.about-me-img5', {x:100, scale: 1.5, transformOrigin: "center bottom"}, '<')
-  .to('.about-me-img6', {x:120, scale: 1.6, transformOrigin: "center bottom"}, '<')
-  .to('.about-me-img7', {x:140, scale: 1.7, transformOrigin: "center bottom"}, '<')
-  .to('.about-me-img8', {x:160, scale: 1.8, transformOrigin: "center bottom"}, '<')
-  .to('.about-me-img9', {x:180, scale: 1.9, transformOrigin: "center bottom"}, '<')
+  .to('.about-me-img', {x:0, scale: 1, duration: .5, opacity: 0.5})
+  .to('.about-me-img1', {x:20, scale: 1.1, transformOrigin: "center bottom", opacity: 0.55}, '<')
+  .to('.about-me-img2', {x:40, scale: 1.2, transformOrigin: "center bottom", opacity: 0.55}, '<')
+  .to('.about-me-img3', {x:60, scale: 1.3, transformOrigin: "center bottom", opacity: 0.55}, '<')
+  .to('.about-me-img4', {x:80, scale: 1.4, transformOrigin: "center bottom", opacity: 0.6}, '<')
+  .to('.about-me-img5', {x:100, scale: 1.5, transformOrigin: "center bottom", opacity: 0.6}, '<')
+  .to('.about-me-img6', {x:120, scale: 1.6, transformOrigin: "center bottom", opacity: 0.65}, '<')
+  .to('.about-me-img7', {x:140, scale: 1.7, transformOrigin: "center bottom", opacity: 0.65}, '<')
+  .to('.about-me-img8', {x:170, scale: 1.9, transformOrigin: "center bottom", opacity: 0.7}, '<')
+  .to('.about-me-img9', {x:200, scale: 2.2, transformOrigin: "center bottom", opacity: 1}, '<')
 
 const ProfileAnimation = gsap.timeline({ paused: true })
 
