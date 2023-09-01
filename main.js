@@ -14,6 +14,8 @@ const bgImgHeight = bgImg.offsetHeight;
 
 const aboutMe = document.querySelector('#about-me')
 
+const skillsImgs = document.querySelectorAll('.skills-icon');
+
 window.addEventListener('load', () => {
   const loading = document.querySelector('#loading')
   const loadSuccess = document.querySelector('#load-success')
@@ -37,25 +39,14 @@ window.addEventListener('load', () => {
     bgImg.style.transform = `scale(${scaleFactor}) translate3d(0, ${translateY}px, 0)`;
   
     if (window.scrollY === 0) {
+      header.style.backgroundColor = 'transparent';
       nav.style.opacity = '0';
       animation.restart();
       titleScroll.style.display = 'block';
     } else {
+      header.style.backgroundColor = '#fefefe';
       nav.style.opacity = '1';
       titleScroll.style.display = 'none';
-    }
-  
-    if (rect.top <= header.getBoundingClientRect().height) {
-      header.style.color = '#000';
-      header.style.backgroundColor = '#f0f0f0';
-      header.style.boxShadow = '0 0 15px 2px #555';
-      menuIcon.src = '/images/menu-black.svg';
-    } else {
-      header.style.color = '#c9c9c9';
-      header.style.backgroundColor = 'transparent';
-      header.style.backdropFilter = 'none';
-      menuIcon.src = '/images/menu.svg';
-      header.style.boxShadow = 'none';
     }
   });
   
@@ -82,6 +73,26 @@ window.addEventListener('load', () => {
     }
   });
 
+  skillsImgs.forEach((icon) => {
+    const iconAnimation = gsap.timeline({ paused: true })
+
+    iconAnimation
+    .to(icon, {
+      y: -20,
+      yoyo: true,
+      duration: 0.2,
+      repeat: 3,
+      ease: 'power2.out',
+    })
+
+    icon.addEventListener('click', (e) => {
+      e.preventDefault();
+      iconAnimation.restart();
+    })
+  })
+
+
+// --------------------- Animation ----------------------//
 
 const LoadingAnimation = gsap.timeline({repeat: -1, repeatDelay: 0.5})
 
@@ -130,6 +141,7 @@ AboutMeAnimation
   .to('.about-me-img7', {x:140, scale: 1.7, transformOrigin: "center bottom", opacity: 0.65}, '<')
   .to('.about-me-img8', {x:170, scale: 1.9, transformOrigin: "center bottom", opacity: 0.7}, '<')
   .to('.about-me-img9', {x:200, scale: 2.2, transformOrigin: "center bottom", opacity: 1}, '<')
+  .from('.intro', {opacity: 0, scale: 2, transformOrigin: 'center center', stagger: 0.05})
 
 const ProfileAnimation = gsap.timeline({ paused: true })
 
@@ -139,6 +151,8 @@ ProfileAnimation
   .from('.profile-paragraph3', {y:30, opacity: 0, duration: 0.5})
   .from('.block-profile', {scale: 0, transformOrigin: 'left bottom'})
 
+
+// -------------------- ScrollAnimation ------------------//
 
   const ScrollAnimation = ({ target, start, play }) => {
     ScrollTrigger.create({
@@ -150,6 +164,6 @@ ProfileAnimation
     })
   }
 
-  ScrollAnimation({ target: '#about-me', start: 'top 20%', play: ProfileAnimation});
+  ScrollAnimation({ target: '#about-me', start: 'top 30%', play: AboutMeAnimation});
 
-  ScrollAnimation({ target: '#about-me', start: 'top 50%', play: AboutMeAnimation});
+  ScrollAnimation({ target: '.about-me-banner', start: 'top 40%', play: ProfileAnimation});

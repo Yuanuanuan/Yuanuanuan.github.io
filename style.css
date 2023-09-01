@@ -64,8 +64,8 @@ body {
   height: 50px;
   background-color: rgba(247, 118, 118, 0.5);
   position: absolute;
-  top: 25px;
-  right: 25px;
+  bottom: 0;
+  right: 0;
   z-index: -1;
 }
 .block::after {
@@ -98,14 +98,15 @@ body {
 
 header {
   position: fixed;
-  top: 0;
-  left: 0;
+  bottom: 10px;
+  left: 10px;
   z-index: 999;
-  width: 100%;
+  width: calc(100% - 20px);
   height: 60px;
-  color: #c9c9c9;
+  background-color: transparent;
+  color: #444;
   transition: color 0.3s ease-in-out;
-  border-radius: 0 0 5px 5px;
+  border-radius: 30px;
 }
 header nav {
   width: 100%;
@@ -130,12 +131,12 @@ header nav ul {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   z-index: 3;
   transform: scale(1, 0);
   transition: transform 0.4s ease-in-out;
-  transform-origin: top;
+  transform-origin: bottom;
 }
 header nav ul::after {
   content: "";
@@ -144,13 +145,13 @@ header nav ul::after {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(255, 255, 255, 0.7);
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
   z-index: -1;
 }
-header nav ul li:first-child {
-  margin-top: 60px;
+header nav ul li:last-child {
+  margin-bottom: 60px;
 }
 header nav ul li {
   width: 100%;
@@ -161,7 +162,7 @@ header nav ul li {
 }
 header nav ul li .nav-menu {
   width: 100%;
-  color: #c9c9c9;
+  color: #333;
   font-size: 2rem;
   text-align: center;
   display: flex;
@@ -170,17 +171,18 @@ header nav ul li .nav-menu {
 }
 header nav ul li .nav-menu hr {
   width: 100%;
+  height: 2px;
   margin-top: 15px;
+  background-color: #333;
+  border: none;
 }
 header nav ul li a {
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-weight: 550;
   font-family: "Lustria", serif;
-  color: #c9c9c9;
+  color: #333;
   position: relative;
-}
-header nav ul li a:hover::after {
-  transform: scale(1, 1);
 }
 header nav .menu-toggle {
   height: 20px;
@@ -266,7 +268,7 @@ main {
   font-family: "Playfair Display SC", serif;
 }
 main .about-me-section {
-  background-color: #e4e4e4;
+  background-color: #f0f0f0;
 }
 main .about-me {
   min-height: 100vh;
@@ -279,6 +281,9 @@ main .about-me .about-me-describe {
   font-size: 0.9rem;
 }
 main .about-me .about-me-title {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
   padding: 10px;
   padding-top: 0;
   text-align: center;
@@ -357,6 +362,7 @@ main .about-me .about-me-banner .profile-paragraph {
   width: 100%;
   margin: 20px 0 5rem;
   background-color: #fcfcfc;
+  border-radius: 10px;
   position: relative;
   font-family: "BenchNine", serif;
 }
@@ -368,6 +374,7 @@ main .about-me .about-me-banner .profile-paragraph::after {
   top: 15px;
   left: 15px;
   border: 3px solid rgba(110, 91, 72, 0.9);
+  border-radius: 10px;
   z-index: -1;
 }
 main .about-me .about-me-banner .profile-paragraph .profile-title {
@@ -402,10 +409,14 @@ main .about-me .about-me-banner .block-profile::before {
   z-index: -2;
 }
 main .qualification-section {
-  background-color: #f0f0f0;
+  background-color: #f8f8f8;
+  padding-bottom: 80px;
 }
 main .qualification-section .qualification {
   padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 main .qualification-section .qualification .qualification-title-describe {
   font-size: 0.8rem;
@@ -413,10 +424,16 @@ main .qualification-section .qualification .qualification-title-describe {
   letter-spacing: 1px;
 }
 main .qualification-section .qualification .qualification-title {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
   font-size: 2.5rem;
-  text-align: center;
   position: relative;
   z-index: 1;
+}
+main .qualification-section .qualification .qualification-title .block {
+  bottom: 0;
+  right: 0;
 }
 main .qualification-section .qualification .cards {
   width: 100%;
@@ -457,4 +474,67 @@ main .qualification-section .qualification .cards .card h3 {
   padding: 4px 0;
   font-size: 0.7rem;
   color: #666;
+}
+main .learning-experience-section {
+  background-color: #f0f0f0;
+}
+main .skills-section {
+  background-color: #f8f8f8;
+}
+main .skills-section .skills .skills-title {
+  text-align: center;
+}
+main .skills-section .skills .skills-title-describe {
+  padding-top: 60px;
+  font-size: 0.8rem;
+}
+main .skills-section .skills .skills-title-main {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  font-size: 3rem;
+}
+main .skills-section .skills .skills-title-frontend, main .skills-section .skills .skills-title-backend {
+  text-align: center;
+  margin-top: 2.3rem;
+  font-family: serif;
+  font-weight: 600;
+}
+main .skills-section .skills .skills-cards {
+  width: 80%;
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-gap: 20px;
+}
+main .skills-section .skills .skills-cards .skills-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  background-color: #efefef;
+  border-radius: 25px;
+}
+main .skills-section .skills .skills-cards .skills-card h1 {
+  font-family: "Teko";
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+}
+main .skills-section .skills .skills-cards .skills-card h2 {
+  font-family: serif;
+}
+main .skills-section .skills .skills-cards .skills-card .skills-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .skills-section .skills .skills-cards .skills-card .skills-img .skills-icon {
+  width: 3.5rem;
 }/*# sourceMappingURL=style.css.map */

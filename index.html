@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Loading page -->
+
   <div id="loading">
     <span class="loading-icon loading-title">L</span>
     <span class="loading-icon loading-title1">o</span>
@@ -20,7 +22,11 @@
     <span class="loading-icon loading-title9">.</span>
   </div>
 
+  <!-- Loading Success -->
+
   <div id="load-success">
+  <!-- Header -->
+
     <header>
       <nav>
         <div class="nav-title">Profile</div>
@@ -35,6 +41,9 @@
             <a href="#qualification">Qualification</a>
           </li>
           <li>
+            <a href="#qualification">Learning Experience</a>
+          </li>
+          <li>
             <a href="#skills">Skills</a>
           </li>
           <li>
@@ -42,11 +51,13 @@
           </li>
         </ul>
         <div class="menu-toggle">
-          <img src="/images/menu.svg" alt="menu" class="menu-icon">
+          <img src="/images/menu-black.svg" alt="menu" class="menu-icon">
           <img src="/images/close.svg" alt="close" class="close-icon">
         </div>
       </nav>
     </header>
+
+  <!-- Cover Page -->
   
     <section class="cover">
       <div class="bg-img-wrapper">
@@ -56,7 +67,10 @@
       <div class="title-scroll">Scroll Down to see more</div>
     </section>
   
+    <!-- Contant -->
     <main>
+
+      <!-- About me section -->
       <section class="about-me-section">
         <section class="about-me container" id="about-me">
           <div class="about-me-describe">My Intro</div>
@@ -92,6 +106,7 @@
         </section>
       </section>
 
+      <!-- Qualification section -->
       <section class="qualification-section">
         <section class="qualification container" id="qualification">
           <div class="qualification-title-describe">Education & Experience</div>
@@ -134,13 +149,136 @@
           </div>
         </section>
       </section>
+
+      <!-- Learning Experience section -->
+      <section class="learning-experience-section">
+        <section class="learning-experience" id="qualification">
+          <div class="learning-experience-title">
+            <div class="learning-experience-title-describe">
+              My History
+            </div>
+            <div class="learning-experience-title-main">
+              Learning Experience
+            </div>
+          </div>
+
+          <div class="learning-cards">
+            <div class="learning-card">
+              <div></div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- Skills section -->
+      <section class="skills-section">
+        <section class="skills" id="skills">
+          <div class="skills-title">
+            <div class="skills-title-describe">My Tools</div>
+            <div class="skills-title-main">
+              Skills
+              <div class="block"></div>
+            </div>
+            <div class="skills-title-frontend">{ } Frontend Development</div>
+          </div>
+
+          <div class="skills-cards">
+            <div class="skills-card">
+              <div class="skills-img">
+                <img src="/images/skill-icons/HTML-icon.svg" alt="HTML-icon" class="skills-icon">
+              </div>
+              <h1>HTML</h1>
+              <h2>Intermediate</h2>
+            </div>
+
+            <div class="skills-card">
+              <div class="skills-img">
+                <img src="/images/skill-icons/CSS-icon.svg" alt="CSS-icon" class="skills-icon">
+              </div>
+              <h1>CSS</h1>
+              <h2>Intermediate</h2>
+            </div>
+
+            <div class="skills-card">
+              <div class="skills-img">
+                <img src="/images/skill-icons/JS-icon.svg" alt="JavaScript-icon" class="skills-icon">
+              </div>
+              <h1>JavaScript</h1>
+              <h2>Intermediate</h2>
+            </div>
+
+            <div class="skills-card">
+              <div class="skills-img">
+                <img src="/images/skill-icons/Sass-icon.svg" alt="Sass-icon" class="skills-icon">
+              </div>
+              <h1>Sass</h1>
+              <h2>Intermediate</h2>
+            </div>
+
+            <div class="skills-card">
+              <div class="skills-img">
+                <img src="/images/skill-icons/gsap-icon.svg" alt="GSAP-icon" class="skills-icon">
+              </div>
+              <h1>GSAP</h1>
+              <h2>Basic</h2>
+            </div>
+
+            <div class="skills-card">
+              <div class="skills-img">
+                <img src="/images/skill-icons/react-icon.svg" alt="react-icon" class="skills-icon">
+              </div>
+              <h1>React</h1>
+              <h2>Basic</h2>
+            </div>
+          </div>
+
+          <div class="skills-title-backend">{ } Backend Development</div>
+          <div class="skills-cards">
+            <div class="skills-card">
+              <div class="skills-img">
+                <img src="/images/skill-icons/Nodejs-icon.svg" alt="Node.js-icon" class="skills-icon">
+              </div>
+              <h1>Node.js</h1>
+              <h2>Basic</h2>
+            </div>
+
+            <div class="skills-card">
+              <div class="skills-img">
+                <img src="/images/skill-icons/express-icon.svg" alt="Express.js-icon" class="skills-icon">
+              </div>
+              <h1>Express.js</h1>
+              <h2>Basic</h2>
+            </div>
+
+            <div class="skills-card">
+              <div class="skills-img">
+                <img src="/images/skill-icons/mysql-icon.svg" alt="MySQL-icon" class="skills-icon">
+              </div>
+              <h1>MySQL</h1>
+              <h2>Basic</h2>
+            </div>
+
+            <div class="skills-card">
+              <div class="skills-img">
+                <img src="/images/skill-icons/Git-icon.svg" alt="Git-icon" class="skills-icon">
+              </div>
+              <h1>Git</h1>
+              <h2>Basic</h2>
+            </div>
+          </div>
+        </section>
+      </section>
   
     </main>
   </div>
 
-
+  <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+
+  <!-- GSAP ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- Main.js -->
   <script src="main.js"></script>
 </body>
 </html>
