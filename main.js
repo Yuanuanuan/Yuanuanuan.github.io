@@ -1,4 +1,5 @@
 
+const topIcon = document.querySelector('.top')
 const header = document.querySelector('header')
 const nav = document.querySelector('nav')
 const title = document.querySelector(".title")
@@ -39,11 +40,13 @@ window.addEventListener('load', () => {
     bgImg.style.transform = `scale(${scaleFactor}) translate3d(0, ${translateY}px, 0)`;
   
     if (window.scrollY === 0) {
+      topIcon.style.display = 'none';
       header.style.backgroundColor = 'transparent';
       nav.style.opacity = '0';
       animation.restart();
       titleScroll.style.display = 'block';
     } else {
+      topIcon.style.display = 'block';
       header.style.backgroundColor = '#fefefe';
       nav.style.opacity = '1';
       titleScroll.style.display = 'none';
