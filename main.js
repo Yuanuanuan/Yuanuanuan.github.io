@@ -42,12 +42,14 @@ window.addEventListener('load', () => {
     if (window.scrollY === 0) {
       topIcon.style.display = 'none';
       header.style.backgroundColor = 'transparent';
+      header.style.boxShadow = 'none';
       nav.style.opacity = '0';
       animation.restart();
       titleScroll.style.display = 'block';
     } else {
       topIcon.style.display = 'block';
-      header.style.backgroundColor = '#fefefe';
+      header.style.backgroundColor = '#f9f9f9';
+      header.style.boxShadow = '0 0 20px 5px #696969';
       nav.style.opacity = '1';
       titleScroll.style.display = 'none';
     }
@@ -154,6 +156,13 @@ ProfileAnimation
   .from('.profile-paragraph3', {y:30, opacity: 0, duration: 0.5})
   .from('.block-profile', {scale: 0, transformOrigin: 'left bottom'})
 
+  const qualificationAnimation = gsap.timeline({ paused: true });
+
+  qualificationAnimation
+    .from('.title', {y:-50, opacity: 0, ease: 'back'})
+    .from('.card > h2', {x: 50, opacity: 0, ease: 'back'})
+    .from('.card > h3', {x: -50, opacity: 0, stagger: 0.2, ease: 'back'})
+
 
 // -------------------- ScrollAnimation ------------------//
 
@@ -170,3 +179,5 @@ ProfileAnimation
   ScrollAnimation({ target: '#about-me', start: 'top 30%', play: AboutMeAnimation});
 
   ScrollAnimation({ target: '.about-me-banner', start: 'top 40%', play: ProfileAnimation});
+
+  ScrollAnimation({ target: '#qualification', start: 'top 30%', play: qualificationAnimation})
