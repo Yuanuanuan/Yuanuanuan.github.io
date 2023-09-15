@@ -538,11 +538,90 @@ main {
 
   .learning-experience-section {
     background-color: $FirstWhite;
+    .learning-experience {
+      .learning-experience-title {
+        width: 100%;
+        text-align: center;
+        .learning-experience-title-describe {
+          padding-top: 60px;
+          font-size: .8rem;
+        }
+        .learning-experience-title-main {
+          width: fit-content;
+          margin: 0 auto;
+          font-size: 2.2rem;
+          position: relative;
+          z-index: 1;
+          & > span {
+            display: block;
+          }
+        }
+      }
+      .learning-cards {
+        padding-bottom: 1rem;
+        width: 100%;
+        .learning-card {
+          width: 90%;
+          margin: 2.5rem auto;
+          background-color: #fbfbfb;
+          box-shadow: 24px 24px 24px 0 #c9c9c9;
+          border-radius: 24px;
+          font-family: 'Noto Sans TC', serif;
+          .alphacamp-image {
+            width: 100%;
+            height: 200px;
+            background-image: url('./images/alpha-logo.png');
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            border-bottom: 1px solid #c9c9c9;
+          }
+          .udemy-image {
+            width: 90%;
+            height: 200px;
+            margin: 0 auto;
+            background-image: url('./images/Udemy-logo.png');
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+          }
+          .describe {
+            background-color: #f5f6f7;
+            border-radius: 0 0 24px 24px;
+            border-top: 1px solid #c9c9c9;
+            padding: 0 12px;
+            h1 {
+              margin: 12px 0;
+              font-size: 1.5rem;
+              font-weight: 700;
+            }
+            p {
+              height: 24px;
+              font-size: 1.15rem;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+            }
+            button {
+              margin: 1.2rem 0;
+              padding: 10px 15px;
+              border: none;
+              border-radius: 10px;
+              color: #fff;
+              background-color: #fd9558;
+              font-size: 1.15rem;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
   }
 
   .skills-section {
     background-color: $SecondWhite;
     .skills {
+      padding-bottom: 16px;
       .skills-title {
         text-align: center;
         &-describe {
@@ -584,17 +663,33 @@ main {
       .skills-cards {
         width: 80%;
         margin: 2rem auto;
+        position: relative;
+
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
         grid-gap: 20px;
         .skills-card {
+          padding: 5px;
+          background-color: inherit;
+          border-radius: 25px;
+          position: relative;
+          z-index: 1;
+
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          padding: 5px;
-          background-color: #efefef;
-          border-radius: 25px;
+          &::after {
+            content: '';
+            width: 100%;
+            height: 100%;
+            border-radius: 25px;
+            box-shadow: 8px 4px 24px 0 #c9c9c9;
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+          }
           h1 {
             font-family: 'Teko';
             letter-spacing: 1px;

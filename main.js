@@ -34,8 +34,6 @@ window.addEventListener('load', () => {
     const scrollY = window.scrollY;
     const scaleFactor = 1 + scrollY * 0.002; // 調整放大倍率
     const translateY = scrollY * 0.2;
-  
-    const rect = aboutMe.getBoundingClientRect();
     
     bgImg.style.transform = `scale(${scaleFactor}) translate3d(0, ${translateY}px, 0)`;
   
