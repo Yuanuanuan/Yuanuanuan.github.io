@@ -15,6 +15,8 @@ const bgImgHeight = bgImg.offsetHeight;
 
 const aboutMe = document.querySelector('#about-me')
 
+const learningCard = document.querySelectorAll('.learning-card')
+
 const skillsImgs = document.querySelectorAll('.skills-icon');
 
 window.addEventListener('load', () => {
@@ -76,6 +78,27 @@ window.addEventListener('load', () => {
     }
   });
 
+  learningCard.forEach((card) => {
+    const describe = card.querySelector('.learning-card-describle')
+    const learnMoreBtn = card.querySelector('.learn-more-btn')
+
+    let expanded = false;
+
+    learnMoreBtn.addEventListener('click', () => {
+      if (!expanded) {
+        describe.style.height = 'auto';
+        describe.style.whiteSpace = 'wrap';
+        learnMoreBtn.innerText = 'Close';
+      } else {
+        describe.style.height = '24px';
+        describe.style.whiteSpace = 'nowrap';
+        learnMoreBtn.innerText = 'Read More';
+      }
+
+      expanded =!expanded;
+    })
+  });
+
   skillsImgs.forEach((icon) => {
     const iconAnimation = gsap.timeline({ paused: true })
 
@@ -93,6 +116,9 @@ window.addEventListener('load', () => {
       iconAnimation.restart();
     })
   })
+
+
+
 
 
 // --------------------- Animation ----------------------//

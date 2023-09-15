@@ -558,7 +558,7 @@ main {
         }
       }
       .learning-cards {
-        padding-bottom: 1rem;
+        padding-bottom: 3rem;
         width: 100%;
         .learning-card {
           width: 90%;
@@ -569,7 +569,7 @@ main {
           font-family: 'Noto Sans TC', serif;
           .alphacamp-image {
             width: 100%;
-            height: 200px;
+            height: 280px;
             background-image: url('./images/alpha-logo.png');
             background-position: center;
             background-size: contain;
@@ -578,7 +578,7 @@ main {
           }
           .udemy-image {
             width: 90%;
-            height: 200px;
+            height: 280px;
             margin: 0 auto;
             background-image: url('./images/Udemy-logo.png');
             background-position: center;
@@ -595,20 +595,20 @@ main {
               font-size: 1.5rem;
               font-weight: 700;
             }
-            p {
+            .learning-card-describle {
               height: 24px;
               font-size: 1.15rem;
               overflow: hidden;
               white-space: nowrap;
               text-overflow: ellipsis;
             }
-            button {
+            .learn-more-btn {
               margin: 1.2rem 0;
               padding: 10px 15px;
               border: none;
               border-radius: 10px;
               color: #fff;
-              background-color: #fd9558;
+              background-color: #beaaa0;
               font-size: 1.15rem;
               cursor: pointer;
             }
