@@ -355,6 +355,7 @@ main .about-me .about-me-title {
 main .about-me .about-me-wrapper {
   width: 100%;
   display: grid;
+  position: relative;
   grid-template-columns: 1fr;
   grid-template-rows: 260px 1fr;
   justify-items: center;
@@ -395,10 +396,10 @@ main .about-me .about-me-wrapper .title-image-info .about-me-banner {
 }
 main .about-me .about-me-wrapper .title-image-info .about-me-banner .intro {
   width: 100%;
-  font-size: 1rem;
+  font-size: 1.15rem;
   padding-bottom: 4px;
   margin-bottom: 12px;
-  border-bottom: 2px solid rgba(110, 91, 72, 0.9);
+  border-bottom: 2px solid #4d4780;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -417,7 +418,7 @@ main .about-me .about-me-wrapper .title-image-info .about-me-banner .intro:nth-c
 }
 main .about-me .about-me-wrapper .title-image-info .about-me-banner .intro svg {
   margin-right: 10px;
-  width: 1.5rem;
+  width: 25px;
 }
 main .about-me .about-me-wrapper .title-image-info .about-me-banner .intro svg path {
   fill: #e0e0e0;
@@ -438,54 +439,26 @@ main .about-me .about-me-wrapper .title-image-info .about-me-banner .social-medi
 }
 main .about-me .about-me-wrapper .profile-paragraph {
   width: 100%;
-  margin: 20px 0 5rem;
-  background-color: transparent;
+  margin: 20px 0 4rem;
   border-radius: 10px;
   position: relative;
   font-family: "BenchNine", "Noto Sans TC", serif;
-  letter-spacing: 0.5px;
-}
-main .about-me .about-me-wrapper .profile-paragraph::after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  border: 3px solid rgba(110, 91, 72, 0.9);
-  border-radius: 10px;
-  z-index: -1;
+  letter-spacing: 1px;
 }
 main .about-me .about-me-wrapper .profile-paragraph .profile-title {
   width: 80%;
   margin: 0 auto;
   padding: 10px 0;
   font-size: 2rem;
-  letter-spacing: 2px;
+  letter-spacing: 5px;
   text-align: center;
-  border-bottom: 2px solid #444;
+  color: #e0e0e0;
+  border-bottom: 2px solid #4d4780;
 }
 main .about-me .about-me-wrapper .profile-paragraph .profile {
-  margin: 10px;
-}
-main .about-me .about-me-wrapper .profile-paragraph .block-profile {
-  width: 230px;
-  height: 380px;
-  border: 4px solid rgba(247, 118, 118, 0.5);
-  position: absolute;
-  top: 0px;
-  left: 30px;
-  z-index: -1;
-}
-main .about-me .about-me-wrapper .profile-paragraph .block-profile::before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  background-color: rgb(255, 222, 172);
-  position: absolute;
-  top: 20px;
-  left: -30px;
-  z-index: -2;
+  margin: 16px 12px;
+  font-size: 0.9rem;
+  color: #e0e0e0;
 }
 main .qualification-section {
   background-color: #fff;

@@ -168,7 +168,7 @@ const AboutMeAnimation = gsap.timeline({ paused: true});
 AboutMeAnimation
   .from(myImage, {x:300, scale: 0.1, duration: .8, opacity: 0, transformOrigin: "center bottom", stagger: -0.05,})
   .from('.intro', {opacity: 0, scale: 2, transformOrigin: 'center center', stagger: 0.05})
-  .from('.social-media a', {y:-60, opacity: 0, duration: 1, ease: Elastic.easeOut.config(1.2, 0.2), stagger: 0.15})
+  .from('.social-media a', {y:-60, opacity: 0, duration: 1, ease: 'smooth', stagger: 0.15})
 
 const ProfileAnimation = gsap.timeline({ paused: true })
 
