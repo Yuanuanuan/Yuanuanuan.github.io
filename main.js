@@ -8,6 +8,7 @@ const menuToggle = document.querySelector('.menu-toggle')
 const menuIcon = document.querySelector('.menu-icon')
 const closeIcon = document.querySelector('.close-icon')
 const list = document.querySelector('ul')
+const listOfATags = document.querySelectorAll('nav-a')
 
 const bgImg = document.querySelector('.bg-img')
 const bgImgWidth = bgImg.offsetWidth;
@@ -40,18 +41,22 @@ window.addEventListener('load', () => {
     bgImg.style.transform = `scale(${scaleFactor}) translate3d(0, ${translateY}px, 0)`;
   
     if (window.scrollY === 0) {
-      topIcon.style.display = 'none';
       header.style.backgroundColor = 'transparent';
       header.style.boxShadow = 'none';
       nav.style.opacity = '0';
       animation.restart();
       titleScroll.style.display = 'block';
     } else {
-      topIcon.style.display = 'block';
       header.style.backgroundColor = '#f9f9f9';
-      header.style.boxShadow = '0 0 20px 5px #696969';
+      header.style.boxShadow = '0 0 15px 4px #343434';
       nav.style.opacity = '1';
       titleScroll.style.display = 'none';
+    }
+
+    if (window.scrollY > 800) {
+      topIcon.style.display = 'block';
+    } else {
+      topIcon.style.display = 'none';
     }
   });
   
@@ -67,14 +72,14 @@ window.addEventListener('load', () => {
   });
   
   menuToggle.addEventListener('click', e => {
-    if (list.style.transform !== 'scale(1, 1)') {
-      list.style.transform = 'scale(1, 1)';
-      menuIcon.style.display = 'none';
-      closeIcon.style.display = 'block';
-    } else {
+    if (e.target.classList.contains('open')) {
+      e.target.classList.remove('open');
       list.style.transform = 'scale(1, 0)';
-      menuIcon.style.display = 'block';
-      closeIcon.style.display = 'none';
+      list.style.opacity = '0';
+    } else {
+      e.target.classList.add('open');
+      list.style.transform = 'scale(1, 1)';
+      list.style.opacity = '1';
     }
   });
 
@@ -155,22 +160,15 @@ const titleAnimation = gsap.timeline({repeat: -1, repeatDelay: 2});
     .to(title, { opacity: 0, duration: 0.15, stagger: 0.05, repeat: 3})
     .to(title, { opacity: 1, duration: 0.1, stagger: 0.05})
 
+const myImage = document.querySelectorAll('.me-image');
 
 const AboutMeAnimation = gsap.timeline({ paused: true});
 
 
 AboutMeAnimation
-  .to('.about-me-img', {x:0, scale: 1, duration: .5, opacity: 0.5})
-  .to('.about-me-img1', {x:20, scale: 1.1, transformOrigin: "center bottom", opacity: 0.55}, '<')
-  .to('.about-me-img2', {x:40, scale: 1.2, transformOrigin: "center bottom", opacity: 0.55}, '<')
-  .to('.about-me-img3', {x:60, scale: 1.3, transformOrigin: "center bottom", opacity: 0.55}, '<')
-  .to('.about-me-img4', {x:80, scale: 1.4, transformOrigin: "center bottom", opacity: 0.6}, '<')
-  .to('.about-me-img5', {x:100, scale: 1.5, transformOrigin: "center bottom", opacity: 0.6}, '<')
-  .to('.about-me-img6', {x:120, scale: 1.6, transformOrigin: "center bottom", opacity: 0.65}, '<')
-  .to('.about-me-img7', {x:140, scale: 1.7, transformOrigin: "center bottom", opacity: 0.65}, '<')
-  .to('.about-me-img8', {x:170, scale: 1.9, transformOrigin: "center bottom", opacity: 0.7}, '<')
-  .to('.about-me-img9', {x:200, scale: 2.2, transformOrigin: "center bottom", opacity: 1}, '<')
+  .from(myImage, {x:300, scale: 0.1, duration: .8, opacity: 0, transformOrigin: "center bottom", stagger: -0.05,})
   .from('.intro', {opacity: 0, scale: 2, transformOrigin: 'center center', stagger: 0.05})
+  .from('.social-media a', {y:-60, opacity: 0, duration: 1, ease: Elastic.easeOut.config(1.2, 0.2), stagger: 0.15})
 
 const ProfileAnimation = gsap.timeline({ paused: true })
 

@@ -98,44 +98,50 @@ body {
 
 header {
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0px;
   z-index: 999;
   width: 100%;
   height: 60px;
   background-color: transparent;
   transition: color 0.3s ease-in-out;
-  border-radius: 0 0 10px 10px;
+  border-radius: 12px 12px 0 0;
 }
 header nav {
   width: 100%;
   height: 100%;
   margin: 0 auto;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  background-color: #222;
+  border-radius: 12px 12px 0 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
 }
 header nav .nav-title {
+  color: #e0e0e0;
   font-size: 2rem;
   margin-left: 20px;
-  font-family: "Playfair Display SC", serif;
-  letter-spacing: 3px;
+  font-family: "Teko", serif;
+  letter-spacing: 5px;
   z-index: 2;
 }
 header nav ul {
   width: 100%;
   list-style: none;
-  display: flex;
-  flex-direction: column;
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
-  z-index: 3;
+  z-index: 999;
   transform: scale(1, 0);
-  transition: transform 0.4s ease-in-out;
-  transform-origin: top;
+  transition: all 0.45s ease-in-out;
+  transform-origin: bottom;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 80px;
+  grid-gap: 8px 0;
+  align-items: center;
 }
 header nav ul::after {
   content: "";
@@ -144,24 +150,18 @@ header nav ul::after {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(255, 255, 255, 0.7);
+  background: #171321;
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
+  border-radius: 16px 16px 0 0;
   z-index: -1;
-}
-header nav ul li:last-child {
-  margin-bottom: 60px;
 }
 header nav ul li {
   width: 100%;
-  padding: 15px 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 header nav ul li .nav-menu {
   width: 100%;
-  color: #333;
+  color: #e0e0e0;
   font-size: 2rem;
   text-align: center;
   display: flex;
@@ -176,31 +176,68 @@ header nav ul li .nav-menu hr {
   border: none;
 }
 header nav ul li a {
+  height: 100px;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   font-weight: 550;
-  font-family: "Lustria", serif;
-  color: #333;
+  font-family: "Noto Sans TC", serif;
+  color: #e0e0e0;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+}
+header nav ul li svg {
+  width: 30px;
+  height: 30px;
+  margin: 24px 0 12px;
+  fill: #e0e0e0;
 }
 header nav .menu-toggle {
-  height: 20px;
-  width: 20px;
+  height: 25px;
+  width: 25px;
   margin-right: 20px;
-  z-index: 3;
+  z-index: 999;
+  position: relative;
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-header nav .menu-toggle .menu-icon {
-  height: 25px;
-  width: 25px;
-  display: block;
+header nav .menu-toggle.open .menu-icon {
+  transform: translateX(10px);
+  background-color: transparent;
 }
-header nav .menu-toggle .close-icon {
-  height: 25px;
-  width: 25px;
-  display: none;
+header nav .menu-toggle.open .menu-icon::before {
+  transform: rotate(45deg) translate(-7px, 7px);
+}
+header nav .menu-toggle.open .menu-icon::after {
+  transform: rotate(-45deg) translate(-7px, -7px);
+}
+header nav .menu-toggle .menu-icon {
+  width: 100%;
+  height: 3px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+}
+header nav .menu-toggle .menu-icon::after, header nav .menu-toggle .menu-icon::before {
+  content: "";
+  width: 100%;
+  height: 3px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+}
+header nav .menu-toggle .menu-icon::after {
+  transform: translateY(-8px);
+}
+header nav .menu-toggle .menu-icon::before {
+  transform: translateY(8px);
 }
 
 .cover {
@@ -271,10 +308,10 @@ main .top {
   width: 30px;
   height: 30px;
   position: fixed;
-  bottom: 40px;
+  bottom: 80px;
   right: 15px;
-  z-index: 999;
-  background-color: #d1ad8a;
+  z-index: 998;
+  background-color: #6358b3;
   border-radius: 50%;
   display: none;
 }
@@ -290,7 +327,7 @@ main .top a img {
   height: 1.5rem;
 }
 main .about-me-section {
-  background-color: #f0f0f0;
+  background: linear-gradient(#222, #171321);
 }
 main .about-me {
   min-height: 100vh;
@@ -301,6 +338,7 @@ main .about-me .about-me-describe {
   padding: 80px 0 0;
   margin-bottom: -10px;
   font-size: 0.9rem;
+  color: #bbb;
 }
 main .about-me .about-me-title {
   width: -moz-fit-content;
@@ -308,6 +346,7 @@ main .about-me .about-me-title {
   margin: 0 auto;
   padding: 10px;
   padding-top: 0;
+  color: #e0e0e0;
   text-align: center;
   font-size: 3rem;
   position: relative;
@@ -321,41 +360,30 @@ main .about-me .about-me-wrapper {
   justify-items: center;
   align-items: center;
 }
-main .about-me .about-me-wrapper .about-me-img-wrapper {
+main .about-me .about-me-wrapper .title-image-info {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .about-me .about-me-wrapper .title-image-info .about-me-img-wrapper {
+  width: 50%;
   position: relative;
   height: 100%;
-  width: 100%;
 }
-main .about-me .about-me-wrapper .about-me-img-wrapper::before, main .about-me .about-me-wrapper .about-me-img-wrapper::after {
-  content: "";
-  width: 50px;
-  height: 50px;
+main .about-me .about-me-wrapper .title-image-info .about-me-img-wrapper img {
+  height: 250px;
   position: absolute;
-  border: 3px solid rgba(110, 91, 72, 0.9);
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  opacity: 1;
 }
-main .about-me .about-me-wrapper .about-me-img-wrapper::before {
-  top: 40px;
-  left: 0;
-  border-right: 0;
-  border-bottom: 0;
-}
-main .about-me .about-me-wrapper .about-me-img-wrapper::after {
-  bottom: 0;
-  right: 0;
-  border-top: 0;
-  border-left: 0;
-}
-main .about-me .about-me-wrapper .about-me-img-wrapper img {
-  max-width: 100%;
-  height: 100px;
-  position: absolute;
-  bottom: 30px;
-  left: calc(50% - 140px);
-  opacity: 0;
-}
-main .about-me .about-me-banner {
-  padding: 0 20px 10px;
-  color: #444;
+main .about-me .about-me-wrapper .title-image-info .about-me-banner {
+  width: 50%;
+  height: 100%;
+  color: #e0e0e0;
   grid-row: 2;
   align-self: start;
   font-family: "BenchNine", "Noto Sans TC", serif;
@@ -363,42 +391,61 @@ main .about-me .about-me-banner {
   z-index: 3;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
 }
-main .about-me .about-me-banner .intro {
-  font-size: 1.2rem;
-  padding: 8px 20px 4px;
+main .about-me .about-me-wrapper .title-image-info .about-me-banner .intro {
+  width: 100%;
+  font-size: 1rem;
+  padding-bottom: 4px;
+  margin-bottom: 12px;
   border-bottom: 2px solid rgba(110, 91, 72, 0.9);
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-main .about-me .about-me-banner .intro:nth-child(1) {
+main .about-me .about-me-wrapper .title-image-info .about-me-banner .intro:nth-child(1) {
   letter-spacing: 1.5px;
   padding-top: 15px;
 }
-main .about-me .about-me-banner .intro:nth-child(2) {
+main .about-me .about-me-wrapper .title-image-info .about-me-banner .intro:nth-child(2) {
   letter-spacing: 1.5px;
 }
-main .about-me .about-me-banner .intro:nth-child(3) {
+main .about-me .about-me-wrapper .title-image-info .about-me-banner .intro:nth-child(3) {
   letter-spacing: 1px;
   margin-bottom: 20px;
 }
-main .about-me .about-me-banner .intro img {
+main .about-me .about-me-wrapper .title-image-info .about-me-banner .intro svg {
   margin-right: 10px;
   width: 1.5rem;
 }
-main .about-me .about-me-banner .profile-paragraph {
+main .about-me .about-me-wrapper .title-image-info .about-me-banner .intro svg path {
+  fill: #e0e0e0;
+}
+main .about-me .about-me-wrapper .title-image-info .about-me-banner .social-media {
+  width: 100%;
+  height: auto;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .about-me .about-me-wrapper .title-image-info .about-me-banner .social-media svg path {
+  fill: #e0e0e0;
+}
+main .about-me .about-me-wrapper .title-image-info .about-me-banner .social-media .facebook {
+  margin: 0 14px;
+}
+main .about-me .about-me-wrapper .profile-paragraph {
   width: 100%;
   margin: 20px 0 5rem;
-  background-color: #fcfcfc;
+  background-color: transparent;
   border-radius: 10px;
   position: relative;
   font-family: "BenchNine", "Noto Sans TC", serif;
   letter-spacing: 0.5px;
 }
-main .about-me .about-me-banner .profile-paragraph::after {
+main .about-me .about-me-wrapper .profile-paragraph::after {
   content: "";
   width: 100%;
   height: 100%;
@@ -409,7 +456,7 @@ main .about-me .about-me-banner .profile-paragraph::after {
   border-radius: 10px;
   z-index: -1;
 }
-main .about-me .about-me-banner .profile-paragraph .profile-title {
+main .about-me .about-me-wrapper .profile-paragraph .profile-title {
   width: 80%;
   margin: 0 auto;
   padding: 10px 0;
@@ -418,10 +465,10 @@ main .about-me .about-me-banner .profile-paragraph .profile-title {
   text-align: center;
   border-bottom: 2px solid #444;
 }
-main .about-me .about-me-banner .profile {
+main .about-me .about-me-wrapper .profile-paragraph .profile {
   margin: 10px;
 }
-main .about-me .about-me-banner .block-profile {
+main .about-me .about-me-wrapper .profile-paragraph .block-profile {
   width: 230px;
   height: 380px;
   border: 4px solid rgba(247, 118, 118, 0.5);
@@ -430,7 +477,7 @@ main .about-me .about-me-banner .block-profile {
   left: 30px;
   z-index: -1;
 }
-main .about-me .about-me-banner .block-profile::before {
+main .about-me .about-me-wrapper .profile-paragraph .block-profile::before {
   content: "";
   width: 100%;
   height: 100%;
@@ -441,7 +488,7 @@ main .about-me .about-me-banner .block-profile::before {
   z-index: -2;
 }
 main .qualification-section {
-  background-color: #f8f8f8;
+  background-color: #fff;
   padding-bottom: 80px;
 }
 main .qualification-section .qualification {
@@ -522,7 +569,7 @@ main .qualification-section .qualification .cards .card h3 {
   color: #666;
 }
 main .learning-experience-section {
-  background-color: #f0f0f0;
+  background-color: #fff;
 }
 main .learning-experience-section .learning-experience .learning-experience-title {
   width: 100%;
@@ -585,10 +632,11 @@ main .learning-experience-section .learning-experience .learning-cards .learning
   font-weight: 700;
 }
 main .learning-experience-section .learning-experience .learning-cards .learning-card .describe .learning-card-describle {
-  height: 24px;
   font-size: 1.15rem;
   overflow: hidden;
-  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   text-overflow: ellipsis;
 }
 main .learning-experience-section .learning-experience .learning-cards .learning-card .describe .learn-more-btn {
@@ -602,7 +650,7 @@ main .learning-experience-section .learning-experience .learning-cards .learning
   cursor: pointer;
 }
 main .skills-section {
-  background-color: #f8f8f8;
+  background-color: #fff;
 }
 main .skills-section .skills {
   padding-bottom: 16px;
@@ -669,7 +717,7 @@ main .skills-section .skills .skills-cards .skills-card::after {
   width: 100%;
   height: 100%;
   border-radius: 25px;
-  box-shadow: 8px 4px 24px 0 #c9c9c9;
+  box-shadow: 12px 12px 16px 0 #c9c9c9;
   position: absolute;
   top: 0;
   left: 0;
