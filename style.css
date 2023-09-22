@@ -38,7 +38,9 @@
 }
 
 html {
+  max-width: 100vw;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -150,7 +152,7 @@ header nav ul::after {
   position: absolute;
   top: 0;
   left: 0;
-  background: #171321;
+  background: #2f2f2f;
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
   border-radius: 16px 16px 0 0;
@@ -266,7 +268,7 @@ header nav .menu-toggle .menu-icon::before {
   background-repeat: no-repeat;
   position: relative;
   z-index: -2;
-  color: #c9c9c9;
+  color: #f0f0f0;
   position: absolute;
 }
 .cover .bg-img-wrapper .bg-img::after {
@@ -294,7 +296,7 @@ header nav .menu-toggle .menu-icon::before {
 .cover .title-scroll {
   font-size: 0.6rem;
   letter-spacing: 3px;
-  color: #c9c9c9;
+  color: #f0f0f0;
   position: relative;
   top: calc(50vh - 25%);
 }
@@ -327,7 +329,7 @@ main .top a img {
   height: 1.5rem;
 }
 main .about-me-section {
-  background: linear-gradient(#222, #171321);
+  background: #222;
 }
 main .about-me {
   min-height: 100vh;
@@ -399,7 +401,7 @@ main .about-me .about-me-wrapper .title-image-info .about-me-banner .intro {
   font-size: 1.15rem;
   padding-bottom: 4px;
   margin-bottom: 12px;
-  border-bottom: 2px solid #4d4780;
+  border-bottom: 2px solid #968276;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -453,7 +455,7 @@ main .about-me .about-me-wrapper .profile-paragraph .profile-title {
   letter-spacing: 5px;
   text-align: center;
   color: #e0e0e0;
-  border-bottom: 2px solid #4d4780;
+  border-bottom: 2px solid #968276;
 }
 main .about-me .about-me-wrapper .profile-paragraph .profile {
   margin: 16px 12px;
@@ -461,7 +463,7 @@ main .about-me .about-me-wrapper .profile-paragraph .profile {
   color: #e0e0e0;
 }
 main .qualification-section {
-  background-color: #fff;
+  background: #2f2f2f;
   padding-bottom: 80px;
 }
 main .qualification-section .qualification {
@@ -474,12 +476,14 @@ main .qualification-section .qualification .qualification-title-describe {
   font-size: 0.8rem;
   text-align: center;
   letter-spacing: 1px;
+  color: #bbb;
 }
 main .qualification-section .qualification .qualification-title {
   width: -moz-fit-content;
   width: fit-content;
   margin: 0 auto;
   font-size: 2.5rem;
+  color: #e0e0e0;
   position: relative;
   z-index: 1;
 }
@@ -489,6 +493,12 @@ main .qualification-section .qualification .qualification-title .block {
 }
 main .qualification-section .qualification .cards {
   width: 100%;
+}
+main .qualification-section .qualification .cards hr {
+  height: 2px;
+  border: none;
+  background-color: #968276;
+  color: #968276;
 }
 main .qualification-section .qualification .cards .card {
   width: 80%;
@@ -513,8 +523,8 @@ main .qualification-section .qualification .cards .card .title {
   width: fit-content;
   font-size: 1.3rem;
   font-family: "Lustria", serif;
-  font-weight: 700;
-  color: #664519;
+  font-weight: 500;
+  color: #f0f0f0;
   display: flex;
   align-items: center;
   position: relative;
@@ -524,25 +534,40 @@ main .qualification-section .qualification .cards .card .title::after {
   height: 10px;
   position: absolute;
   bottom: 5px;
-  left: 30px;
+  left: 45px;
   right: -10px;
-  background-color: rgba(199, 144, 149, 0.6705882353);
+  background-color: #968276;
   border-radius: 10px;
   z-index: -1;
 }
+main .qualification-section .qualification .cards .card .title svg {
+  margin-right: 12px;
+}
+main .qualification-section .qualification .cards .card .title svg path {
+  fill: #e0e0e0;
+}
 main .qualification-section .qualification .cards .card h2 {
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin: 10px 0 5px;
   padding: 4px 0;
-  color: #725735;
+  font-weight: 400;
+  color: #f0f0f0;
 }
 main .qualification-section .qualification .cards .card h3 {
   padding: 4px 0;
-  font-size: 0.7rem;
-  color: #666;
+  font-size: 0.9rem;
+  color: #c9c9c9;
+  display: flex;
+  align-items: center;
+}
+main .qualification-section .qualification .cards .card h3 svg {
+  margin-right: 8px;
+}
+main .qualification-section .qualification .cards .card h3 svg path {
+  fill: #c9c9c9;
 }
 main .learning-experience-section {
-  background-color: #fff;
+  background-color: #222;
 }
 main .learning-experience-section .learning-experience .learning-experience-title {
   width: 100%;
@@ -551,11 +576,13 @@ main .learning-experience-section .learning-experience .learning-experience-titl
 main .learning-experience-section .learning-experience .learning-experience-title .learning-experience-title-describe {
   padding-top: 60px;
   font-size: 0.8rem;
+  color: #bbb;
 }
 main .learning-experience-section .learning-experience .learning-experience-title .learning-experience-title-main {
   width: -moz-fit-content;
   width: fit-content;
   margin: 0 auto;
+  color: #e0e0e0;
   font-size: 2.2rem;
   position: relative;
   z-index: 1;
@@ -570,8 +597,8 @@ main .learning-experience-section .learning-experience .learning-cards {
 main .learning-experience-section .learning-experience .learning-cards .learning-card {
   width: 90%;
   margin: 2.5rem auto;
-  background-color: #fbfbfb;
-  box-shadow: 24px 24px 24px 0 #c9c9c9;
+  background-color: #ddd;
+  box-shadow: 16px 12px 12px 5px transparent;
   border-radius: 24px;
   font-family: "Noto Sans TC", serif;
 }
@@ -594,9 +621,10 @@ main .learning-experience-section .learning-experience .learning-cards .learning
   background-repeat: no-repeat;
 }
 main .learning-experience-section .learning-experience .learning-cards .learning-card .describe {
-  background-color: #f5f6f7;
+  background-color: #616161;
   border-radius: 0 0 24px 24px;
   border-top: 1px solid #c9c9c9;
+  color: #e0e0e0;
   padding: 0 12px;
 }
 main .learning-experience-section .learning-experience .learning-cards .learning-card .describe h1 {
@@ -618,7 +646,7 @@ main .learning-experience-section .learning-experience .learning-cards .learning
   border: none;
   border-radius: 10px;
   color: #fff;
-  background-color: #beaaa0;
+  background-color: #968276;
   font-size: 1.15rem;
   cursor: pointer;
 }

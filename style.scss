@@ -35,14 +35,14 @@
 $MainBGWhite: #f0f0f0;
 $SecondBGWhite: #f8f8f8;
 $MainBGBlack: #222;
-$SecondBGBlack: #171321;
+$SecondBGBlack: #2f2f2f;
 $LightTextColor: #222;
 $DescribeColor: #bbb;
 $TextColor: #e0e0e0;
+$white: #f0f0f0;
+$SecondWhite: #c9c9c9;
 // #282a39
-
-$white: #c9c9c9;
-$mainColor: #4d4780;
+$mainColor: #968276;
 
 
 * {
@@ -52,7 +52,9 @@ $mainColor: #4d4780;
 }
 
 html {
+  max-width: 100vw;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 h1,h2,h3,h4,h5,h6 {
   margin: 0;
@@ -345,7 +347,7 @@ main {
     }
   }
   .about-me-section {
-    background: linear-gradient($MainBGBlack, $SecondBGBlack);
+    background: $MainBGBlack
   }
   .about-me {
     min-height: 100vh;
@@ -483,7 +485,7 @@ main {
   }
 
   .qualification-section {
-    background-color: #fff;
+    background: $SecondBGBlack;
     padding-bottom: 80px;
     .qualification {
       padding-top: 60px;
@@ -494,11 +496,13 @@ main {
         font-size: .8rem;
         text-align: center;
         letter-spacing: 1px;
+        color: $DescribeColor;
       }
       .qualification-title {
         width: fit-content;
         margin: 0 auto;
         font-size: 2.5rem;
+        color: $TextColor;
         position: relative;
         z-index: 1;
         .block {
@@ -508,6 +512,12 @@ main {
       }
       .cards {
         width: 100%;
+        hr {
+          height: 2px;
+          border: none;
+          background-color: $mainColor;
+          color: $mainColor;
+        }
         .card {
           width: 80%;
           margin: 0 auto;
@@ -530,8 +540,8 @@ main {
             width: fit-content;
             font-size: 1.3rem;
             font-family: 'Lustria', serif;
-            font-weight: 700;
-            color:#664519;
+            font-weight: 500;
+            color: $white;
             display: flex;
             align-items: center;
             position: relative;
@@ -540,23 +550,39 @@ main {
               height: 10px;
               position: absolute;
               bottom: 5px;
-              left: 30px;
+              left: 45px;
               right: -10px;
-              background-color: #c79095ab;
+              background-color: $mainColor;
               border-radius: 10px;
               z-index: -1;
             }
+            svg {
+              margin-right: 12px;
+              & path {
+                fill: $TextColor;
+              }
+            }
           }
           h2 {
-            font-size: 1rem;
+            font-size: 1.1rem;
             margin: 10px 0 5px;
             padding: 4px 0;
-            color: #725735;
+            font-weight: 400;
+            color: $white;
           }
           h3 {
             padding: 4px 0;
-            font-size: .7rem;
-            color: #666;
+            font-size: .9rem;
+            color: $SecondWhite;
+
+            display: flex;
+            align-items: center;
+            svg {
+              margin-right: 8px;
+              & path {
+                fill: $SecondWhite;
+              }
+            }
           }
         }
       }
@@ -564,7 +590,7 @@ main {
   }
 
   .learning-experience-section {
-    background-color: #fff;
+    background-color: $MainBGBlack;
     .learning-experience {
       .learning-experience-title {
         width: 100%;
@@ -572,10 +598,12 @@ main {
         .learning-experience-title-describe {
           padding-top: 60px;
           font-size: .8rem;
+          color: $DescribeColor;
         }
         .learning-experience-title-main {
           width: fit-content;
           margin: 0 auto;
+          color: $TextColor;
           font-size: 2.2rem;
           position: relative;
           z-index: 1;
@@ -590,8 +618,8 @@ main {
         .learning-card {
           width: 90%;
           margin: 2.5rem auto;
-          background-color: #fbfbfb;
-          box-shadow: 24px 24px 24px 0 #c9c9c9;
+          background-color: #ddd;
+          box-shadow: 16px 12px 12px 5px transparent;
           border-radius: 24px;
           font-family: 'Noto Sans TC', serif;
           .alphacamp-image {
@@ -613,9 +641,10 @@ main {
             background-repeat: no-repeat;
           }
           .describe {
-            background-color: #f5f6f7;
+            background-color: #616161;
             border-radius: 0 0 24px 24px;
             border-top: 1px solid #c9c9c9;
+            color: $TextColor;
             padding: 0 12px;
             h1 {
               margin: 12px 0;
@@ -636,7 +665,7 @@ main {
               border: none;
               border-radius: 10px;
               color: #fff;
-              background-color: #beaaa0;
+              background-color: $mainColor;
               font-size: 1.15rem;
               cursor: pointer;
             }
