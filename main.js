@@ -1,11 +1,7 @@
 
 const topIcon = document.querySelector('.top')
-const header = document.querySelector('header')
-const nav = document.querySelector('nav')
-const title = document.querySelector(".title")
-const titleScroll = document.querySelector('.title-scroll')
+const coverTitle = document.querySelector(".cover-title")
 const menuToggle = document.querySelector('.menu-toggle')
-const menuIcon = document.querySelector('.menu-icon')
 const closeIcon = document.querySelector('.close-icon')
 const list = document.querySelector('ul')
 const listOfATags = document.querySelectorAll('nav-a')
@@ -20,9 +16,12 @@ const learningCard = document.querySelectorAll('.learning-card')
 
 const skillsImgs = document.querySelectorAll('.skills-icon');
 
+const body = document.body
+
 window.addEventListener('load', () => {
   const loading = document.querySelector('#loading')
   const loadSuccess = document.querySelector('#load-success')
+  gsap.to('.loading-icon', {rotation:360, repeat: -1, duration: 3, ease: 'power0'})
 
   setTimeout(() => {
     loading.style.display = 'none';
@@ -30,30 +29,14 @@ window.addEventListener('load', () => {
   }, 0);
 })
 
-  
-  let animation = gsap.to(titleScroll, { y: 20, duration: 1, repeat: -1 });
-
   window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
     const scaleFactor = 1 + scrollY * 0.002; // 調整放大倍率
     const translateY = scrollY * 0.2;
     
     bgImg.style.transform = `scale(${scaleFactor}) translate3d(0, ${translateY}px, 0)`;
-  
-    if (window.scrollY === 0) {
-      header.style.backgroundColor = 'transparent';
-      header.style.boxShadow = 'none';
-      nav.style.opacity = '0';
-      animation.restart();
-      titleScroll.style.display = 'block';
-    } else {
-      header.style.backgroundColor = '#f9f9f9';
-      header.style.boxShadow = '0 0 15px 4px #343434';
-      nav.style.opacity = '1';
-      titleScroll.style.display = 'none';
-    }
 
-    if (window.scrollY > 800) {
+    if (window.scrollY > 700) {
       topIcon.style.display = 'block';
     } else {
       topIcon.style.display = 'none';
@@ -72,16 +55,55 @@ window.addEventListener('load', () => {
   });
   
   menuToggle.addEventListener('click', e => {
-    if (e.target.classList.contains('open')) {
-      e.target.classList.remove('open');
-      list.style.transform = 'scale(1, 0)';
-      list.style.opacity = '0';
-    } else {
-      e.target.classList.add('open');
-      list.style.transform = 'scale(1, 1)';
+      list.style.transform = 'translate(-50%, -50%) scale(1, 1)';
       list.style.opacity = '1';
-    }
   });
+
+  closeIcon.addEventListener('click', e => {
+    list.style.transform = 'translate(-50%, -50%) scale(0, 0)';
+    list.style.opacity = '0';
+  })
+
+  const aboutMeSection = document.querySelector('.about-me-section')
+  const qualificationSection = document.querySelector('.qualification-section')
+  const learningSection = document.querySelector('.learning-experience-section')
+  const skillsSection = document.querySelector('.skills-section')
+  const portfolioSection = document.querySelector('.portfolio-section')
+  const contactSection = document.querySelector('.contact-section')
+
+  const sections = {
+    'about-link': aboutMeSection,
+    'qualification-link': qualificationSection,
+    'learning-link': learningSection,
+    'skills-link': skillsSection,
+    'portfolio-link': portfolioSection,
+    'contact-link': contactSection,
+  };
+
+  list.addEventListener('click', e => {
+    console.log(e.target)
+    if (e.target.classList.contains('close-icon')) return
+
+    list.style.transform = 'translate(-50%, -50%) scale(0, 0)';
+    list.style.opacity = '0';
+
+    const linkType = e.target.classList[1];
+
+    Object.values(sections).forEach(section => {
+      section.style.maxHeight = '0';
+    })
+
+    setTimeout(() => {
+      window.scrollTo({
+        top: window.innerHeight,
+        behavior: 'smooth',
+      });
+      clearTimeout();
+    }, 1000);
+
+    sections[linkType].style.maxHeight = '2000px';
+
+  })
 
   learningCard.forEach((card) => {
     const describe = card.querySelector('.learning-card-describle')
@@ -91,12 +113,10 @@ window.addEventListener('load', () => {
 
     learnMoreBtn.addEventListener('click', () => {
       if (!expanded) {
-        describe.style.height = 'auto';
-        describe.style.whiteSpace = 'wrap';
+        describe.style.display = 'block';
         learnMoreBtn.innerText = 'Close';
       } else {
-        describe.style.height = '24px';
-        describe.style.whiteSpace = 'nowrap';
+        describe.style.display = '-webkit-box';
         learnMoreBtn.innerText = 'Read More';
       }
 
@@ -122,48 +142,40 @@ window.addEventListener('load', () => {
     })
   })
 
+  const moonIcon = document.querySelector('.moon-icon');
+
+  moonIcon.addEventListener('click', (e) => {
+    if (body.classList.contains('light-mode')) {
+      body.classList.remove('light-mode');
+      body.classList.add('dark-mode');
+      e.target.style.backgroundImage = "url('./images/icons/moon-svgrepo-com.svg')";
+    } else {
+      body.classList.add('light-mode');
+      body.classList.remove('dark-mode');
+      e.target.style.backgroundImage = "url('./images/icons/sun-svgrepo-com.svg')";
+    }
+  })
 
 
 
 
 // --------------------- Animation ----------------------//
 
-const LoadingAnimation = gsap.timeline({repeat: -1, repeatDelay: 0.5})
+  
+const coverTitleAnimation = gsap.timeline({repeat: -1, repeatDelay: 2});
+  
+  coverTitleAnimation 
+    .to(coverTitle, { opacity: 1, duration: 0.07, repeat: 6, yoyo: true})
+    .to(coverTitle, { opacity: 0, delay: .7, duration: 0.06, repeat: 1, yoyo: true})
 
-LoadingAnimation
-  .to('.loading-title', {y:-30, duration: 0.2, ease: 'none'})
-  .to('.loading-title', {y:0, duration: 0.2, ease: 'none'})
-  .to('.loading-title1', {y:-30, duration: 0.2, ease: 'none'}, '<-0.15')
-  .to('.loading-title1', {y:0, duration: 0.2, ease: 'none'})
-  .to('.loading-title2', {y:-30, duration: 0.2}, '<-0.15')
-  .to('.loading-title2', {y:0, duration: 0.2})
-  .to('.loading-title3', {y:-30, duration: 0.2}, '<-0.15')
-  .to('.loading-title3', {y:0, duration: 0.2})
-  .to('.loading-title4', {y:-30, duration: 0.2}, '<-0.15')
-  .to('.loading-title4', {y:0, duration: 0.2})
-  .to('.loading-title5', {y:-30, duration: 0.2}, '<-0.15')
-  .to('.loading-title5', {y:0, duration: 0.2})
-  .to('.loading-title6', {y:-30, duration: 0.2}, '<-0.15')
-  .to('.loading-title6', {y:0, duration: 0.2})
-  .to('.loading-title7', {y:-30, duration: 0.2}, '<-0.15')
-  .to('.loading-title7', {y:0, duration: 0.2})
-  .to('.loading-title8', {y:-30, duration: 0.2}, '<-0.15')
-  .to('.loading-title8', {y:0, duration: 0.2})
-  .to('.loading-title9', {y:-30, duration: 0.2}, '<-0.15')
-  .to('.loading-title9', {y:0, duration: 0.2})
+const coverClickMe = gsap.to('.cover-click-me', {scale: 1.1, duration: .6, repeat: -1, yoyo: true})
 
-  
-  
-const titleAnimation = gsap.timeline({repeat: -1, repeatDelay: 2});
-  
-  titleAnimation
-    .to(title, { opacity: 0, duration: 0.15, stagger: 0.05, repeat: 3})
-    .to(title, { opacity: 1, duration: 0.1, stagger: 0.05})
+const CoverBorder = gsap.from('.cover-border', {scale: .8, opacity: 0, duration: .6, repeat: -1, yoyo: true});
+
 
 const myImage = document.querySelectorAll('.me-image');
 
 const AboutMeAnimation = gsap.timeline({ paused: true});
-
 
 AboutMeAnimation
   .from(myImage, {x:300, scale: 0.1, duration: .8, opacity: 0, transformOrigin: "center bottom", stagger: -0.05,})
@@ -181,9 +193,18 @@ ProfileAnimation
   const qualificationAnimation = gsap.timeline({ paused: true });
 
   qualificationAnimation
-    .from('.title', {y:-50, opacity: 0, ease: 'back'})
-    .from('.card > h2', {x: 50, opacity: 0, ease: 'back'})
-    .from('.card > h3', {x: -50, opacity: 0, stagger: 0.2, ease: 'back'})
+    .from('.card-title', {y:-50, opacity: 0, duration: .5, ease: 'back'})
+    .from('.qualification-card > h2', {x: 50, opacity: 0, duration: .4, ease: 'back'})
+    .from('.qualification-card > h3', {x: -50, opacity: 0, duration: .3, stagger: 0.2, ease: 'back'})
+
+  const learningAlphaCampAnimation = gsap.timeline({ paused: true });
+  const learningUdemyAnimation = gsap.timeline({ paused: true });
+
+  learningAlphaCampAnimation
+    .from('.alphacamp', {y:100, opacity:0, scale: .5, duration: .5, ease: 'smooth'})
+
+  learningUdemyAnimation
+    .from('.udemy', {y:100, opacity:0, scale: .5, duration: .5, ease: 'smooth'})
 
 
 // -------------------- ScrollAnimation ------------------//
@@ -203,3 +224,7 @@ ProfileAnimation
   ScrollAnimation({ target: '.about-me-banner', start: 'top 40%', play: ProfileAnimation});
 
   ScrollAnimation({ target: '#qualification', start: 'top 30%', play: qualificationAnimation})
+
+  ScrollAnimation({ target: '#learning', start: 'top 30%', play: learningAlphaCampAnimation});
+
+  ScrollAnimation({ target: '#learning', start: 'top -30%', play: learningUdemyAnimation});
