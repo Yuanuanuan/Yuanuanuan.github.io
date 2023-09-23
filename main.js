@@ -34,7 +34,7 @@ window.addEventListener('load', () => {
     const scaleFactor = 1 + scrollY * 0.002; // 調整放大倍率
     const translateY = scrollY * 0.2;
     
-    bgImg.style.transform = `scale(${scaleFactor}) translate3d(0, ${translateY}px, 0)`;
+    // bgImg.style.transform = `scale(${scaleFactor}) translate3d(0, ${translateY}px, 0)`;
 
     if (window.scrollY > 500) {
       topIcon.style.display = 'block';
@@ -84,9 +84,6 @@ window.addEventListener('load', () => {
     console.log(e.target)
     if (e.target.classList.contains('close-icon')) return
 
-    list.style.transform = 'translate(-50%, -50%) scale(0, 0)';
-    list.style.opacity = '0';
-
     const linkType = e.target.classList[1];
 
     Object.values(sections).forEach(section => {
@@ -97,7 +94,7 @@ window.addEventListener('load', () => {
 
     setTimeout(() => {
       window.scrollTo({
-        top: window.innerHeight,
+        top: window.innerHeight + 5,
         behavior: 'smooth',
       });
     }, 550);
