@@ -34,13 +34,19 @@ body.dark-mode {
   --TextColor: #e0e0e0;
   --DescribeColor: #bbb;
   --describe-h2: #c0c0c0;
-  --ulBG: #11111100;
+  --ulBG: #66666630;
+  --ul-text: #c9c9c9;
   --white: #f0f0f0;
   --SecondWhite: #c9c9c9;
   --learningCard-background: #ddd;
   --learningCard-boxshadow: transparent;
   --learning-describe-bg: #616161;
   --skills-card-boxshadow: #111;
+  --cover-title: #5a636a;
+  --cover-title-shadow: #969696;
+  --cover-click-me: #132d46;
+  --cover-btn-first: #708f96;
+  --cover-btn-second: #364649;
   --mainColor: #968276;
 }
 
@@ -50,13 +56,19 @@ body.light-mode {
   --TextColor: #111;
   --DescribeColor: #222;
   --describe-h2: #5e5e5e;
-  --ulBG: #f0f0f099;
+  --ulBG: #f0f0f060;
+  --ul-text: #333;
   --white: #232323;
   --SecondWhite: #656565;
   --learningCard-background: #f0f0f0;
   --learningCard-boxshadow: #dbdbdb;
   --learning-describe-bg: #f5f6f7;
   --skills-card-boxshadow: #b5b6b7;
+  --cover-title: #acaa5a;
+  --cover-title-shadow: #fde9a6;
+  --cover-click-me: #e09132;
+  --cover-btn-first: #e0d8cc;
+  --cover-btn-second: #aa895f;
   --mainColor: #968276;
 }
 
@@ -185,8 +197,8 @@ body {
     margin-top: 10rem;
     font-size: 2.5rem;
     font-family: 'Teko', sans-serif;
-    color: #bdc591;
-    text-shadow: 0 0 20px #eaf89a;
+    color: var(--cover-title);
+    text-shadow: 0 0 16px var(--cover-title-shadow);
     letter-spacing: 10px;
     text-align: center;
     opacity: 0;
@@ -195,15 +207,18 @@ body {
     }
   }
   .cover-click-me {
+    font-family: 'Noto Sans TC', serif;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(calc(-50% + 4px), calc(-50% + 4px));
     padding: 5px;
     font-size: .8rem;
+    font-weight: 500;
+    border-radius: 4px;
     letter-spacing: 1px;
-    color: #fff;
-    background-color: #c14122;
+    color: var(--TextColor);
+    background: radial-gradient(circle,var(--cover-btn-first),var(--cover-btn-second));
     box-shadow: 0 0 50px 10px #e0e0e0;
   }
   .cover-border {
@@ -264,16 +279,13 @@ body {
     z-index: 999;
     transition: all .45s ease-in-out;
     transform-origin: center;
-    // background: url('./images/inComputer-JPG.jpg');
-    // background: var(--ulBG);
 
-    background: center / cover no-repeat url('./images/inComputer-JPG.jpg');
+    background: center / cover no-repeat var(--ulBG);
     backdrop-filter: blur(10px);
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 40px 1fr 1fr 1fr 40px;
-    grid-gap: 8px 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: 40px repeat(6, 70px) 40px;
     align-items: center;
     &::after {
       content: '';
@@ -288,15 +300,15 @@ body {
     li {
       width: 100%;
       &:first-child {
-        grid-column: 1 / 3;
         grid-row: 1;
         display: flex;
         justify-content: flex-end;
-        .close-icon {
-          width: 25px;
-          height: 25px;
+        .close-icon{
           margin-right: 16px;
           margin-top: 12px;
+          & path {
+            fill: var(--ul-text);
+          }
         }
 
       }
@@ -317,19 +329,16 @@ body {
         }
       }
       a {
-        height: 100px;
         text-decoration: none;
-        font-size: .8rem;
-        font-weight: 550;
-        font-family: 'Noto Sans TC', serif;
-        color: var(--TextColor);
+        font-size: 1.5rem;
+        font-weight: 700;
+        font-family: 'EB Garamond', serif;
+        color: var(--ul-text);
         position: relative;
 
         display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
-        text-align: center;
         &:hover, &:hover svg{
           color: var(--mainColor);
           fill: var(--mainColor);
@@ -337,7 +346,7 @@ body {
         svg {
           width: 30px;
           height: 30px;
-          margin: 24px 0 12px;
+          margin-right: 16px;
           fill: var(--TextColor);
           pointer-events: none;
         }
@@ -353,8 +362,8 @@ main {
     width: 30px;
     height: 30px;
     position: fixed;
-    bottom: 100px;
-    right: 15px;
+    bottom: 40px;
+    right: 20px;
     z-index: 998;
     background-color: var(--mainColor);
     border-radius: 50%;

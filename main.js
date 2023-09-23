@@ -36,7 +36,7 @@ window.addEventListener('load', () => {
     
     bgImg.style.transform = `scale(${scaleFactor}) translate3d(0, ${translateY}px, 0)`;
 
-    if (window.scrollY > 700) {
+    if (window.scrollY > 500) {
       topIcon.style.display = 'block';
     } else {
       topIcon.style.display = 'none';
@@ -93,17 +93,17 @@ window.addEventListener('load', () => {
       section.style.maxHeight = '0';
     })
 
+    sections[linkType].style.maxHeight = '2000px';
+
     setTimeout(() => {
       window.scrollTo({
         top: window.innerHeight,
         behavior: 'smooth',
       });
-      clearTimeout();
-    }, 1000);
-
-    sections[linkType].style.maxHeight = '2000px';
+    }, 550);
 
   })
+  
 
   learningCard.forEach((card) => {
     const describe = card.querySelector('.learning-card-describle')
@@ -148,11 +148,11 @@ window.addEventListener('load', () => {
     if (body.classList.contains('light-mode')) {
       body.classList.remove('light-mode');
       body.classList.add('dark-mode');
-      e.target.style.backgroundImage = "url('./images/icons/moon-svgrepo-com.svg')";
+      e.target.style.backgroundImage = "url('./images/icons/sun-svgrepo-com.svg')";
     } else {
       body.classList.add('light-mode');
       body.classList.remove('dark-mode');
-      e.target.style.backgroundImage = "url('./images/icons/sun-svgrepo-com.svg')";
+      e.target.style.backgroundImage = "url('./images/icons/moon-svgrepo-com.svg')";
     }
   })
 
